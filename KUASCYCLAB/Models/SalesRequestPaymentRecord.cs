@@ -20,7 +20,7 @@ namespace KUASCYCLAB.Models
             this.SalesRequestPayments = new HashSet<SalesRequestPayment>();
         }
         [Key]
-        [Display(Name = "蕭貨請款單紀錄編號")]
+        [Display(Name = "銷貨請款單紀錄編號")]
         public System.Guid SalesRequestPaymentRecordID { get; set; }
         [Display(Name = "記錄日期")]
         public System.DateTime Date { get; set; }
@@ -30,6 +30,7 @@ namespace KUASCYCLAB.Models
         public string Remark { get; set; }
         [Display(Name = "倉管部紀錄員工姓名")]
         public string AccountingDepartmentEmployee { get; set; }
+        [Display(Name = "出貨單")]
         public System.Guid PackingListID { get; set; }
 
         public virtual PackingList PackingList { get; set; }

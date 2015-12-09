@@ -31,6 +31,7 @@ namespace KUASCYCLAB.Models
         public string AccountingStaff { get; set; }
         [Display(Name = "付款人姓名")]
         public string Payer { get; set; }
+        [Display(Name = "銷貨請款單紀錄編號")]
         public System.Guid SalesRequestPaymentRecordID { get; set; }
 
         public virtual ICollection<SalesIncome> SalesIncomes { get; set; }

@@ -29,6 +29,7 @@ namespace KUASCYCLAB.Models
         public string OfferAmount { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Display(Name = "詢價人")]
         public System.Guid InquiryID { get; set; }
 
         public virtual Inquiry Inquiry { get; set; }

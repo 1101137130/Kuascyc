@@ -40,7 +40,9 @@ namespace KUASCYCLAB.Models
         public string PurchasingDepartmentEmployee { get; set; }
         [Display(Name = "生產部處理員工姓名")]
         public string SupplierEmployee { get; set; }
+        [Display(Name = "供應商")]
         public System.Guid SupplierID { get; set; }
+        [Display(Name = "進貨申請單")]
         public System.Guid PurchaseRequisitionID { get; set; }
 
         public virtual PurchaseRequisition PurchaseRequisition { get; set; }

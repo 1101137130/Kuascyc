@@ -29,8 +29,11 @@ namespace KUASCYCLAB.Models
         public System.DateTime LastRecordedDate { get; set; }
         [Display(Name = "倉管記錄人姓名")]
         public string WarehouseRecordName { get; set; }
+        [Display(Name = "商品")]
         public System.Guid ProductID { get; set; }
+        [Display(Name = "生產負責人姓名")]
         public System.Guid InventorySingle { get; set; }
+        [Display(Name = "供應商")]
         public System.Guid ShipperID { get; set; }
 
         public virtual ICollection<IncomeStatement> IncomeStatements { get; set; }

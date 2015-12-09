@@ -31,6 +31,7 @@ namespace KUASCYCLAB.Models
         public string TopProductSpecifications { get; set; }
         [Display(Name = "冷門商品規格")]
         public string Less_popular_Product_Specifications { get; set; }
+        [Display(Name = "出貨單")]
         public System.Guid PackingListID { get; set; }
 
         public virtual PackingList PackingList { get; set; }

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.Purchase>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
+
+</p>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LimitedReceiptDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPurchaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiptLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasingDepartmentEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseRequisition.PurchaseQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LimitedReceiptDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPurchaseAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceiptLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchasingDepartmentEmployee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierEmployee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseRequisition.PurchaseQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.PurchaseID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.PurchaseID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.PurchaseID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

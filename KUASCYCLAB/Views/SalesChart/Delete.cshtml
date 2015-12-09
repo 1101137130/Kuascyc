@@ -82,7 +82,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="刪除" class="btn btn-default" /> |
-            @Html.ActionLink("回上一頁", "Index")
+               <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Index")'; return false;"> <span class="glyphicon glyphicon-arrow-left"></span></button>
         </div>
     }
 </div>

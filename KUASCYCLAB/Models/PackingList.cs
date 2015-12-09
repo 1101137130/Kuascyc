@@ -35,6 +35,7 @@ namespace KUASCYCLAB.Models
         public string BusinessProcessEmployee { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Display(Name = "訂單編號之銷售人員")]
         public System.Guid SalesOrderID { get; set; }
 
         public virtual ICollection<InventoryRecord> InventoryRecords { get; set; }

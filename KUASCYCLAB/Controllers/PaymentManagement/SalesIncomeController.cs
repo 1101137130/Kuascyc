@@ -40,7 +40,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
         // GET: SalesIncome/Create
         public ActionResult Create()
         {
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "ExportAccount");
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "Payer");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "ExportAccount", salesIncome.SalesRequestPaymentID);
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "Payer", salesIncome.SalesRequestPaymentID);
             return View(salesIncome);
         }
 
@@ -75,7 +75,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
             {
                 return HttpNotFound();
             }
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "ExportAccount", salesIncome.SalesRequestPaymentID);
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "Payer", salesIncome.SalesRequestPaymentID);
             return View(salesIncome);
         }
 
@@ -92,7 +92,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "ExportAccount", salesIncome.SalesRequestPaymentID);
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPayments, "SalesRequestPaymentID", "Payer", salesIncome.SalesRequestPaymentID);
             return View(salesIncome);
         }
 

@@ -45,7 +45,9 @@ namespace KUASCYCLAB.Models
         public string BusinessProcessEmployee { get; set; }
         [Display(Name = "倉管部處理員工姓名")]
         public string WarehouseDealingEmployee { get; set; }
+        [Display(Name = "報價單編號")]
         public System.Guid QuotationID { get; set; }
+        [Display(Name = "客戶編號")]
         public System.Guid CustomerID { get; set; }
 
         public virtual CustomerProfile CustomerProfile { get; set; }

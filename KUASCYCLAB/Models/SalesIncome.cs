@@ -29,6 +29,7 @@ namespace KUASCYCLAB.Models
         public string Payer { get; set; }
         [Display(Name = "會計部處理員工姓名")]
         public string AccountingDepartmentEmployee { get; set; }
+        [Display(Name = "銷貨請款單編號")]
         public System.Guid SalesRequestPaymentID { get; set; }
 
         public virtual SalesRequestPayment SalesRequestPayment { get; set; }

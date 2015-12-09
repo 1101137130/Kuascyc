@@ -40,7 +40,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
         // GET: PurchaseInvoice/Create
         public ActionResult Create()
         {
-            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "PurchaseAmount");
+            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "Remark");
             return View();
         }
 
@@ -75,7 +75,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
             {
                 return HttpNotFound();
             }
-            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "PurchaseAmount", purchaseInvoice.PurchaseID);
+            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "Remark", purchaseInvoice.PurchaseID);
             return View(purchaseInvoice);
         }
 

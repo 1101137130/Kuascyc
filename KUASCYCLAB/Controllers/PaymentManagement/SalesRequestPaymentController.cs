@@ -40,7 +40,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
         // GET: SalesRequestPayment/Create
         public ActionResult Create()
         {
-            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status");
+            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status", salesRequestPayment.SalesRequestPaymentRecordID);
+            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark", salesRequestPayment.SalesRequestPaymentRecordID);
             return View(salesRequestPayment);
         }
 
@@ -75,7 +75,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
             {
                 return HttpNotFound();
             }
-            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status", salesRequestPayment.SalesRequestPaymentRecordID);
+            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark", salesRequestPayment.SalesRequestPaymentRecordID);
             return View(salesRequestPayment);
         }
 
@@ -92,7 +92,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status", salesRequestPayment.SalesRequestPaymentRecordID);
+            ViewBag.SalesRequestPaymentRecordID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark", salesRequestPayment.SalesRequestPaymentRecordID);
             return View(salesRequestPayment);
         }
 

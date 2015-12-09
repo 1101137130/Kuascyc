@@ -5,6 +5,7 @@
 }
 
 <h2>編輯</h2>
+@Scripts.Render("~/bundles/bootstrap-datepicker")
 
 @using (Html.BeginForm())
 {
@@ -27,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.InvoiceDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.InvoiceDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.InvoiceDate, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -73,5 +74,5 @@
 }
 
 <div>
-    @Html.ActionLink("回上一頁", "Index")
+       <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Index")'; return false;"> <span class="glyphicon glyphicon-arrow-left"></span></button>
 </div>

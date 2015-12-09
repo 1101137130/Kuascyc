@@ -37,6 +37,7 @@ namespace KUASCYCLAB.Models
         public string Remark { get; set; }
         [Display(Name = "業務部處理員工姓名")]
         public string BusinessProcessEmployee { get; set; }
+        [Display(Name = "出貨單")]
         public System.Guid PackingListID { get; set; }
 
         public virtual PackingList PackingList { get; set; }

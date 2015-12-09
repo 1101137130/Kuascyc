@@ -33,8 +33,11 @@ namespace KUASCYCLAB.Models
         public Nullable<System.DateTime> LastRecordedDate { get; set; }
         [Display(Name = "倉管記錄人姓名")]
         public string CangguanLastRecordName { get; set; }
+        [Display(Name = "供應商")]
         public System.Guid VendorID { get; set; }
+        [Display(Name = "入庫單人員")]
         public System.Guid ReceiptID { get; set; }
+        [Display(Name = "產品")]
         public System.Guid ProductionOrderID { get; set; }
 
         public virtual ICollection<IncomeStatement> IncomeStatements { get; set; }

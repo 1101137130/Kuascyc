@@ -27,6 +27,7 @@ namespace KUASCYCLAB.Models
         public string Purchase { get; set; }
         [Display(Name = "入庫日期")]
         public System.DateTime StorageDate { get; set; }
+        [Display(Name = "進貨單編號")]
         public System.Guid PurchaseID { get; set; }
 
         public virtual ICollection<MaterialInventoryRecord> MaterialInventoryRecords { get; set; }

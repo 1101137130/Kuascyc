@@ -29,6 +29,7 @@ namespace KUASCYCLAB.Models
         public System.DateTime ReplenishmentLimitedDate { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Display(Name = "進貨單")]
         public System.Guid PurchaseID { get; set; }
 
         public virtual Purchase Purchase { get; set; }

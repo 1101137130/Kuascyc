@@ -40,7 +40,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
         // GET: PurchaseRequestPayment/Create
         public ActionResult Create()
         {
-            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "PurchaseAmount");
+            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "Remark");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "PurchaseAmount", purchaseRequestPayment.PurchaseID);
+            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "Remark", purchaseRequestPayment.PurchaseID);
             return View(purchaseRequestPayment);
         }
 
@@ -75,7 +75,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
             {
                 return HttpNotFound();
             }
-            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "PurchaseAmount", purchaseRequestPayment.PurchaseID);
+            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "Remark", purchaseRequestPayment.PurchaseID);
             return View(purchaseRequestPayment);
         }
 
@@ -92,7 +92,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "PurchaseAmount", purchaseRequestPayment.PurchaseID);
+            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "Remark", purchaseRequestPayment.PurchaseID);
             return View(purchaseRequestPayment);
         }
 

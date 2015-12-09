@@ -40,7 +40,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
         // GET: SalesInvoice/Create
         public ActionResult Create()
         {
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status");
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status", salesInvoice_.SalesRequestPaymentID);
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark", salesInvoice_.SalesRequestPaymentID);
             return View(salesInvoice_);
         }
 
@@ -75,7 +75,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
             {
                 return HttpNotFound();
             }
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status", salesInvoice_.SalesRequestPaymentID);
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark", salesInvoice_.SalesRequestPaymentID);
             return View(salesInvoice_);
         }
 
@@ -92,7 +92,7 @@ namespace KUASCYCLAB.Controllers.PaymentManagement
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Status", salesInvoice_.SalesRequestPaymentID);
+            ViewBag.SalesRequestPaymentID = new SelectList(db.SalesRequestPaymentRecords, "SalesRequestPaymentRecordID", "Remark", salesInvoice_.SalesRequestPaymentID);
             return View(salesInvoice_);
         }
 

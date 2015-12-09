@@ -1,0 +1,104 @@
+﻿@model KUASCYCLAB.Models.Purchase
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>進貨單管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LimitedReceiptDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LimitedReceiptDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPurchaseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPurchaseAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiptLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiptLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchasingDepartmentEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchasingDepartmentEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseRequisition.PurchaseQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseRequisition.PurchaseQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.SupplierName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+               <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Index")'; return false;"> <span class="glyphicon glyphicon-arrow-left"></span></button>
+        </div>
+    }
+</div>

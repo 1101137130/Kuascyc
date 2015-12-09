@@ -32,6 +32,7 @@ namespace KUASCYCLAB.Models
         public string PurchasingDepartmentEmployee { get; set; }
         [Display(Name = "會計部處理員工姓名")]
         public string AccountingDepartmentEmployee { get; set; }
+        [Display(Name = "進貨單")]
         public System.Guid PurchaseID { get; set; }
 
         public virtual ICollection<IncomeStatement> IncomeStatements { get; set; }

@@ -40,7 +40,7 @@ namespace KUASCYCLAB.Controllers.ProduceStroage
         // GET: StorageVoucher/Create
         public ActionResult Create()
         {
-            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "PurchaseAmount");
+            ViewBag.PurchaseID = new SelectList(db.Purchases, "PurchaseID", "Remark");
             return View();
         }
 
