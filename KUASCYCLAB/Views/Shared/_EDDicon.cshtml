@@ -1,0 +1,11 @@
+﻿
+
+<button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item })'; return false;">
+    <span class="glyphicon glyphicon-pencil"></span>
+</button>
+<button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.BOMID })'; return false;">
+    <span class="glyphicon glyphicon-search"></span>
+</button>
+<button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.BOMID })'; return false;">
+    <span class="glyphicon glyphicon-remove"></span>
+</button>

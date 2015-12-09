@@ -7,57 +7,66 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExportAccount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Deadline)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountingStaff)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Payer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalesRequestPaymentRecord.Status)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExportAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountingStaff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesRequestPaymentRecord.Status)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequestDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExportAccount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Deadline)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountingStaff)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalesRequestPaymentRecord.Status)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.SalesRequestPaymentID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.SalesRequestPaymentID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.SalesRequestPaymentID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExportAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountingStaff)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesRequestPaymentRecord.Status)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.SalesRequestPaymentID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.SalesRequestPaymentID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.SalesRequestPaymentID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>

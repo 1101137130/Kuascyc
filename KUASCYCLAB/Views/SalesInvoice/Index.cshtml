@@ -7,57 +7,66 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UniformID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InvoiceDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OutputTaxCharges)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountingDepartmentHandleEmployee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PayName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalesRequestPaymentRecord.Status)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UniformID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutputTaxCharges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountingDepartmentHandleEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesRequestPaymentRecord.Status)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniformID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InvoiceDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OutputTaxCharges)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountingDepartmentHandleEmployee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PayName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalesRequestPaymentRecord.Status)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.SalesInvoiceID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.SalesInvoiceID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.SalesInvoiceID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UniformID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutputTaxCharges)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountingDepartmentHandleEmployee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesRequestPaymentRecord.Status)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.SalesInvoiceID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.SalesInvoiceID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.SalesInvoiceID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>

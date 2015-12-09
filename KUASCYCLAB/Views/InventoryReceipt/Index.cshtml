@@ -7,45 +7,55 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductionInChargeOfName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WarehouseResponsibleName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InventoryDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductionOrder.ProductionProductName)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductionInChargeOfName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarehouseResponsibleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductionOrder.ProductionProductName)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductionInChargeOfName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WarehouseResponsibleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InventoryDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductionOrder.ProductionProductName)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.InventoryReceiptID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.InventoryReceiptID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.InventoryReceiptID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionInChargeOfName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WarehouseResponsibleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InventoryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionOrder.ProductionProductName)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.InventoryReceiptID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.InventoryReceiptID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.InventoryReceiptID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
 
-</table>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

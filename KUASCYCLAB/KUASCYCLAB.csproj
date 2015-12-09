@@ -78,6 +78,14 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\lib\net45\Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.10.1.766, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Core.2.10.1\lib\net40-Client\NuGet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.0.0\lib\net40\Swashbuckle.Core.dll</HintPath>
       <Private>True</Private>
@@ -225,7 +233,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PaymentManagement\PaymentManagementController.cs" />
     <Compile Include="Controllers\PaymentManagement\PurchaseInvoiceController.cs" />
     <Compile Include="Controllers\PaymentManagement\PurchaseRequestPaymentController.cs" />
     <Compile Include="Controllers\PaymentManagement\SalesIncomeController.cs" />
@@ -235,12 +242,10 @@
     <Compile Include="Controllers\PaymentManagement\SalesRequestPaymentRecordController.cs" />
     <Compile Include="Controllers\ProduceStroage\BOMListController.cs" />
     <Compile Include="Controllers\ProduceStroage\MaterialInventoryRecordController.cs" />
-    <Compile Include="Controllers\ProduceStroage\ProduceStorageController.cs" />
     <Compile Include="Controllers\ProduceStroage\ProductionOrderController.cs" />
     <Compile Include="Controllers\ProduceStroage\StorageVoucherController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\PurchaseManagement\PurchaseController.cs" />
-    <Compile Include="Controllers\PurchaseManagement\PurchaseManagementController.cs" />
     <Compile Include="Controllers\PurchaseManagement\PurchaseRequisitionController.cs" />
     <Compile Include="Controllers\PurchaseManagement\PurchaseReturnController.cs" />
     <Compile Include="Controllers\PurchaseManagement\SupplierController.cs" />
@@ -249,12 +254,10 @@
     <Compile Include="Controllers\SalesManagement\InventoryRecordController.cs" />
     <Compile Include="Controllers\SalesManagement\PackingListController.cs" />
     <Compile Include="Controllers\SalesManagement\QuotationController.cs" />
-    <Compile Include="Controllers\SalesManagement\SalesManagementController.cs" />
     <Compile Include="Controllers\SalesManagement\SalesOrderController.cs" />
     <Compile Include="Controllers\SalesManagement\SalesReturnController.cs" />
     <Compile Include="Controllers\StatisticsRanking\IncomeStatementController.cs" />
     <Compile Include="Controllers\StatisticsRanking\SalesChartController.cs" />
-    <Compile Include="Controllers\StatisticsRanking\StatisticsRankingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -400,7 +403,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -550,7 +555,6 @@
     <Content Include="Views\SalesChart\Details.cshtml" />
     <Content Include="Views\SalesChart\Edit.cshtml" />
     <Content Include="Views\SalesChart\Index.cshtml" />
-    <Content Include="Views\StatisticsRanking\Index.cshtml" />
     <Content Include="Views\InventoryRecord\Create.cshtml" />
     <Content Include="Views\InventoryRecord\Delete.cshtml" />
     <Content Include="Views\InventoryRecord\Details.cshtml" />
@@ -568,6 +572,7 @@
     <Content Include="Views\InventoryReceipt\Details.cshtml" />
     <Content Include="Views\InventoryReceipt\Edit.cshtml" />
     <Content Include="Views\InventoryReceipt\Index.cshtml" />
+    <Content Include="Views\Shared\_EDDicon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -576,7 +581,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>

@@ -7,8 +7,9 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
+<div style=" overflow:auto;">
 <table class="table">
     <tr>
         <th>
@@ -59,11 +60,19 @@
             @Html.DisplayFor(modelItem => item.Purchase.PurchaseAmount)
         </td>
         <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.PurchaseReturnsID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.PurchaseReturnsID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.PurchaseReturnsID })
+            <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.PurchaseReturnsID })'; return false;">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.PurchaseReturnsID })'; return false;">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+            <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.PurchaseReturnsID })'; return false;">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+
         </td>
     </tr>
 }
 
 </table>
+</div>

@@ -7,45 +7,54 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.WarehouseStaff)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Purchase)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StorageDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Purchase1.PurchaseAmount)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WarehouseStaff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StorageDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase1.PurchaseAmount)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.WarehouseStaff)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Purchase)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StorageDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Purchase1.PurchaseAmount)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.StorageVoucherID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.StorageVoucherID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.StorageVoucherID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WarehouseStaff)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StorageDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase1.PurchaseAmount)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.StorageVoucherID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.StorageVoucherID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.StorageVoucherID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>

@@ -7,108 +7,93 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"><span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table" >
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AnnualStatistics)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PreTaxIncome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NetIncome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InventoryRecord.ProductStocks)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaterialInventoryRecord.MaterialName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PurchaseInvoice.InvoiceNumber)
-        </th>
-       
-        <th>
-            @Html.DisplayNameFor(model => model.PurchaseRequestPayment.ImportAccount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalesIncomeRecord.AccountNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalesInvoice_.UniformID)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AnnualStatistics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreTaxIncome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NetIncome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryRecord.ProductStocks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaterialInventoryRecord.MaterialName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseInvoice.InvoiceNumber)
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnnualStatistics)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PreTaxIncome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NetIncome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountingDepartmentEmployee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InventoryRecord.ProductStocks)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaterialInventoryRecord.MaterialName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchaseInvoice.InvoiceNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchaseRequestPayment.ImportAccount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalesIncomeRecord.AccountNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalesInvoice_.UniformID)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.IncomeStatementID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.IncomeStatementID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.IncomeStatementID })
-        </td>
-    </tr>
-}
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseRequestPayment.ImportAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesIncomeRecord.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesInvoice_.UniformID)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
-<table id="list1"></table>
-<div id="pager1"></div>
-<script type="text/javascript">
-    jQuery("#list1").jqGrid({
-        url: '',
-        datatype: "json",
-        colNames: ['Id','First Name', 'Last Name', 'Last 4 SSN', 'Department',
-                'Age', 'Salary',  "Address",'Marital Status'],
-        colModel: [
-        { name: '_id', index: '_id', width: 20, stype: 'text' },
-        { name: 'FirstName', index: 'FirstName', width: 150 },
-        { name: 'LastName', index: 'LastName', width: 150 },
-           { name: 'LastSSN', index: 'LastSSN', width: 100 },
-        { name: 'Department', index: 'Department', width: 80, align: "right" },
-        { name: 'Age', index: 'Salary', width: 80, align: "right" },
-        { name: 'Salary', index: 'Salary', width: 80, align: "right" },
-        { name: 'Address', index: 'Address', width: 150, sortable: false },
-        { name: 'MaritalStatus', index: 'MaritalStatus', width: 100, sortable: false }
-      ],
-        rowNum: 10,
-        sortname: 'id',
-        viewrecords: true,
-        sortorder: "desc",
-        caption: "List Employee Details"
-    });
-</script>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnnualStatistics)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PreTaxIncome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NetIncome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountingDepartmentEmployee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InventoryRecord.ProductStocks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaterialInventoryRecord.MaterialName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseInvoice.InvoiceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseRequestPayment.ImportAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesIncomeRecord.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesInvoice_.UniformID)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.IncomeStatementID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.IncomeStatementID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.IncomeStatementID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </table> 
+</div>
+
+

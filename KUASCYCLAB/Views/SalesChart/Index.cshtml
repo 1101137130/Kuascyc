@@ -7,69 +7,79 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AnnualRanking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopRanking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LessPopularRanking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopRankingName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LessPopularRankingName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopProductSpecifications)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Less_popular_Product_Specifications)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PackingList.Deliveryman)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AnnualRanking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TopRanking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LessPopularRanking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TopRankingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LessPopularRankingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TopProductSpecifications)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Less_popular_Product_Specifications)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackingList.Deliveryman)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnnualRanking)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopRanking)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LessPopularRanking)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopRankingName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LessPopularRankingName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopProductSpecifications)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Less_popular_Product_Specifications)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PackingList.Deliveryman)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.SalesChartsID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.SalesChartsID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.SalesChartsID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnnualRanking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TopRanking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LessPopularRanking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TopRankingName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LessPopularRankingName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TopProductSpecifications)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Less_popular_Product_Specifications)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PackingList.Deliveryman)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.SalesChartsID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.SalesChartsID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.SalesChartsID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
 
-</table>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

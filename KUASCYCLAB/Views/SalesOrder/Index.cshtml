@@ -7,105 +7,114 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ToName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RecipientPlace)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RecipientsPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExpectedReceiptDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Qty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalQty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PurchaseAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalOrderAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Remark)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BusinessProcessEmployee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WarehouseDealingEmployee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerProfile.CustomerName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quotation.BusinessOrdersEmployee)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipientPlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipientsPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpectedReceiptDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalOrderAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessProcessEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarehouseDealingEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerProfile.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quotation.BusinessOrdersEmployee)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ToName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecipientPlace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecipientsPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExpectedReceiptDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Qty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalQty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchaseAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalOrderAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BusinessProcessEmployee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WarehouseDealingEmployee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerProfile.CustomerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quotation.BusinessOrdersEmployee)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.SalesOrderID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.SalesOrderID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.SalesOrderID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipientPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipientsPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpectedReceiptDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalQty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalOrderAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessProcessEmployee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WarehouseDealingEmployee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerProfile.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quotation.BusinessOrdersEmployee)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.SalesOrderID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.SalesOrderID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.SalesOrderID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>

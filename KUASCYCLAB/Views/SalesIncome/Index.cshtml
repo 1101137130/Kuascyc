@@ -7,51 +7,60 @@
 <h2>檢索</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Create")'; return false;"> <span class="glyphicon glyphicon-plus"></span></button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Remark)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Payer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalesRequestPayment.ExportAccount)
-        </th>
-        <th></th>
-    </tr>
+<div style=" overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesRequestPayment.ExportAccount)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountingDepartmentEmployee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalesRequestPayment.ExportAccount)
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id=item.SalesIncomeID }) |
-            @Html.ActionLink("檢視", "Details", new { id=item.SalesIncomeID }) |
-            @Html.ActionLink("刪除", "Delete", new { id=item.SalesIncomeID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountingDepartmentEmployee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesRequestPayment.ExportAccount)
+                </td>
+                <td>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id = item.SalesIncomeID })'; return false;">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Details",new { id = item.SalesIncomeID })'; return false;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Delete",new { id = item.SalesIncomeID })'; return false;">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>
