@@ -34,6 +34,7 @@ namespace KUASCYCLAB.Models
         public string TotalQty { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Display(Name = "詢價商品")]
         public System.Guid ProductID { get; set; }
 
         public virtual Product Product { get; set; }
