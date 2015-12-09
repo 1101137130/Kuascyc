@@ -1,0 +1,66 @@
+﻿@model KUASCYCLAB.Models.CustomerProfile
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>CustomerProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactsPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactsPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_MAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_MAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponsiblePerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponsiblePerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RemittanceAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RemittanceAccount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.CustomerID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

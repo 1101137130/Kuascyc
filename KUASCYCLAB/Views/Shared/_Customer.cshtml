@@ -1,0 +1,6 @@
+﻿@if (Request.IsAuthenticated)
+{ }
+else
+{
+    <li> @Html.ActionLink("下單", "Create", "Inquiry")</li>
+}

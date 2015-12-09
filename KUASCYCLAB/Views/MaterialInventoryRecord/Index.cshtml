@@ -1,0 +1,87 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.MaterialInventoryRecord>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialSpecifications)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SafetyStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastRecordedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CangguanLastRecordName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionOrder.ProductionProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StorageVoucher.WarehouseStaff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialSpecifications)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Inventory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SafetyStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastRecordedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CangguanLastRecordName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionOrder.ProductionProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StorageVoucher.WarehouseStaff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier1.SupplierName)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.MaterialInventoryRecordID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.MaterialInventoryRecordID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.MaterialInventoryRecordID })
+        </td>
+    </tr>
+}
+
+</table>

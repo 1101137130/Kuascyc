@@ -1,0 +1,72 @@
+﻿@model KUASCYCLAB.Models.PackingList
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>出貨單管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deliveryman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deliveryman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseStaff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseStaff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessProcessEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessProcessEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesOrder.ToName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesOrder.ToName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>

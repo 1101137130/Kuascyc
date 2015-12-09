@@ -1,0 +1,74 @@
+﻿@model KUASCYCLAB.Models.Supplier
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>供應商資料管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponsiblePerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponsiblePerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplyRawMaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplyRawMaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RawMaterialPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RawMaterialPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.SupplierID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

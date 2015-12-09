@@ -1,0 +1,66 @@
+﻿@model KUASCYCLAB.Models.SalesInvoice_
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>SalesInvoice_</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UniformID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniformID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutputTaxCharges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutputTaxCharges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingDepartmentHandleEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountingDepartmentHandleEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesRequestPaymentRecord.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesRequestPaymentRecord.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.SalesInvoiceID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

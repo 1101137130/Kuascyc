@@ -1,0 +1,63 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.PackingList>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deliveryman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseStaff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessProcessEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesOrder.ToName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deliveryman)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseStaff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessProcessEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesOrder.ToName)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.PackingListID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.PackingListID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.PackingListID })
+        </td>
+    </tr>
+}
+
+</table>

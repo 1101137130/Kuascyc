@@ -1,0 +1,136 @@
+﻿@model KUASCYCLAB.Models.SalesOrder
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>訂單管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipientPlace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipientPlace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipientsPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipientsPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedReceiptDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedReceiptDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalOrderAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalOrderAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessProcessEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessProcessEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseDealingEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseDealingEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerProfile.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerProfile.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quotation.BusinessOrdersEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quotation.BusinessOrdersEmployee)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>

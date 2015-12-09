@@ -1,0 +1,104 @@
+﻿@model KUASCYCLAB.Models.ProductionOrder
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>生產管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartProductionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartProductionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Closingdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Closingdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionProductSpecifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionProductSpecifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityProduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityProduction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalQuantityProduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalQuantityProduction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CangguanApplyEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CangguanApplyEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionProcessingEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionProcessingEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOMList.MaterialName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOMList.MaterialName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>

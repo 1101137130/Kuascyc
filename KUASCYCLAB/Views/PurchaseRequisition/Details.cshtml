@@ -1,0 +1,66 @@
+﻿@model KUASCYCLAB.Models.PurchaseRequisition
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>進貨申請管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPurchaseQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPurchaseQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CangguanEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CangguanEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchasingDepartmentEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchasingDepartmentEmployee)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.PurchaseRequisitionID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

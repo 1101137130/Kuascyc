@@ -1,0 +1,82 @@
+﻿@model KUASCYCLAB.Models.SalesChart
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>銷貨排行榜管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualRanking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnnualRanking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopRanking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopRanking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LessPopularRanking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessPopularRanking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopRankingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopRankingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LessPopularRankingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessPopularRankingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopProductSpecifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopProductSpecifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Less_popular_Product_Specifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Less_popular_Product_Specifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PackingList.Deliveryman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PackingList.Deliveryman)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.SalesChartsID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

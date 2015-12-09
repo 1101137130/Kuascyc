@@ -1,0 +1,112 @@
+﻿@model KUASCYCLAB.Models.IncomeStatement
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>損益表管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualStatistics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnnualStatistics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreTaxIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreTaxIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountingDepartmentEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InventoryRecord.ProductStocks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InventoryRecord.ProductStocks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialInventoryRecord.MaterialName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialInventoryRecord.MaterialName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseInvoice.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseInvoice.InvoiceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseInvoice1.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseInvoice1.InvoiceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseRequestPayment.ImportAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseRequestPayment.ImportAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesIncomeRecord.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesIncomeRecord.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesInvoice_.UniformID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesInvoice_.UniformID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>

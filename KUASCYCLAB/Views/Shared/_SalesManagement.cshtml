@@ -1,0 +1,18 @@
+﻿@if (Request.IsAuthenticated)
+{
+  
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">銷售管理 <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("詢價單管理", "Index", "Inquiry")</li>
+        <li>@Html.ActionLink("報價單管理", "Index", "Quotation")</li>
+        <li>@Html.ActionLink("訂單管理", "Index", "SalesOrder")</li>
+        <li>@Html.ActionLink("客戶基本資料管理", "Index", "CustomerProfile")</li>
+        <li>@Html.ActionLink("商品存貨紀錄管理", "Index", "InventoryRecord")</li>
+        <li>@Html.ActionLink("出貨單管理", "Index", "PackingList")</li>
+        <li>@Html.ActionLink("銷貨退回單管理", "Index", "SalesReturn")</li>
+        </ul>
+        }
+        else
+        {
+
+        }

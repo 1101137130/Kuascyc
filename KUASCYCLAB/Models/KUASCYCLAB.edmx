@@ -1,0 +1,2445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KUASCYCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'KUASCYC.dbo.Account' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UsreName" />
+            <PropertyRef Name="UserPassword" />
+            <PropertyRef Name="OfficialRank" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="Islogin" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UsreName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="OfficialRank" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="Islogin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOMList">
+          <Key>
+            <PropertyRef Name="BOMID" />
+          </Key>
+          <Property Name="BOMID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MaterialName" Type="nvarchar" MaxLength="20" />
+          <Property Name="MaterialQuantity" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerProfile">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ContactsPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="E-MAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResponsiblePerson" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="RemittanceAccount" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IncomeStatement">
+          <Key>
+            <PropertyRef Name="IncomeStatementID" />
+          </Key>
+          <Property Name="IncomeStatementID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnnualStatistics" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PreTaxIncome" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NetIncome" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SalesIncomeRecordID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseRequestPaymentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseInvoiceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SalesInvoiceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InventoryRecordID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MaterialInventoryRecordID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inquiry">
+          <Key>
+            <PropertyRef Name="InquiryID" />
+          </Key>
+          <Property Name="InquiryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InquiryName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InquiryDate" Type="date" Nullable="false" />
+          <Property Name="ContactsPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="E-MAIL" Type="nvarchar" MaxLength="30" />
+          <Property Name="Qty" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TotalQty" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InventoryReceipt">
+          <Key>
+            <PropertyRef Name="InventoryReceiptID" />
+          </Key>
+          <Property Name="InventoryReceiptID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductionInChargeOfName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="WarehouseResponsibleName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InventoryDate" Type="date" Nullable="false" />
+          <Property Name="ProductionOrderID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InventoryRecord">
+          <Key>
+            <PropertyRef Name="InventoryRecordID" />
+          </Key>
+          <Property Name="InventoryRecordID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductStocks" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SafetyStock" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="LastRecordedDate" Type="date" Nullable="false" />
+          <Property Name="WarehouseRecordName" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InventorySingle" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShipperID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialInventoryRecord">
+          <Key>
+            <PropertyRef Name="MaterialInventoryRecordID" />
+          </Key>
+          <Property Name="MaterialInventoryRecordID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MaterialName" Type="nvarchar" MaxLength="20" />
+          <Property Name="MaterialSpecifications" Type="nvarchar" MaxLength="30" />
+          <Property Name="Inventory" Type="nvarchar" MaxLength="10" />
+          <Property Name="SafetyStock" Type="nvarchar" MaxLength="10" />
+          <Property Name="LastRecordedDate" Type="date" />
+          <Property Name="CangguanLastRecordName" Type="nvarchar" MaxLength="10" />
+          <Property Name="VendorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReceiptID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductionOrderID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PackingList">
+          <Key>
+            <PropertyRef Name="PackingListID" />
+          </Key>
+          <Property Name="PackingListID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeliveryDate" Type="date" Nullable="false" />
+          <Property Name="Deliveryman" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="WarehouseStaff" Type="nvarchar" MaxLength="10" />
+          <Property Name="BusinessProcessEmployee" Type="nvarchar" MaxLength="10" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesOrderID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductSpecifications" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductUnit" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductionOrder">
+          <Key>
+            <PropertyRef Name="ProductionOrderID" />
+          </Key>
+          <Property Name="ProductionOrderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartProductionDate" Type="date" Nullable="false" />
+          <Property Name="Closingdate" Type="date" Nullable="false" />
+          <Property Name="ProductionProductName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductionProductSpecifications" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="QuantityProduction" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TotalQuantityProduction" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CangguanApplyEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProductionProcessingEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="BOMID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="PurchaseID" />
+          </Key>
+          <Property Name="PurchaseID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseDate" Type="date" Nullable="false" />
+          <Property Name="LimitedReceiptDate" Type="date" Nullable="false" />
+          <Property Name="PurchaseAmount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TotalPurchaseAmount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReceiptLocation" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="PurchasingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SupplierEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SupplierID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseRequisitionID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseInvoice">
+          <Key>
+            <PropertyRef Name="PurchaseInvoiceID" />
+          </Key>
+          <Property Name="PurchaseInvoiceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InvoiceDate" Type="date" Nullable="false" />
+          <Property Name="VATcharges" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PurchasingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PurchaseID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseRequestPayment">
+          <Key>
+            <PropertyRef Name="PurchaseRequestPaymentID" />
+          </Key>
+          <Property Name="PurchaseRequestPaymentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RequestDate" Type="date" Nullable="false" />
+          <Property Name="ImportAccount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Deadline" Type="date" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="10" />
+          <Property Name="PurchasingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PurchaseID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseRequisition">
+          <Key>
+            <PropertyRef Name="PurchaseRequisitionID" />
+          </Key>
+          <Property Name="PurchaseRequisitionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationDate" Type="date" Nullable="false" />
+          <Property Name="PurchaseQuantity" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TotalPurchaseQuantity" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="CangguanEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PurchasingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseReturns">
+          <Key>
+            <PropertyRef Name="PurchaseReturnsID" />
+          </Key>
+          <Property Name="PurchaseReturnsID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseReturnsDate" Type="date" Nullable="false" />
+          <Property Name="PurchaseReturnsQuantity" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PurchaseReturnsTotalQuantity" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PurchaseReturnsReason" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ReplenishmentLimitedDate" Type="date" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="PurchaseID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quotation">
+          <Key>
+            <PropertyRef Name="QuotationID" />
+          </Key>
+          <Property Name="QuotationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BusinessOrdersEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="QuoteDate" Type="date" Nullable="false" />
+          <Property Name="OfferAmount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="InquiryID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesCharts">
+          <Key>
+            <PropertyRef Name="SalesChartsID" />
+          </Key>
+          <Property Name="SalesChartsID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnnualRanking" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TopRanking" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="LessPopularRanking" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TopRankingName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="LessPopularRankingName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TopProductSpecifications" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Less popular Product Specifications" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PackingListID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesIncome">
+          <Key>
+            <PropertyRef Name="SalesIncomeID" />
+          </Key>
+          <Property Name="SalesIncomeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payer" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SalesRequestPaymentID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesIncomeRecord">
+          <Key>
+            <PropertyRef Name="SalesIncomeRecordID" />
+          </Key>
+          <Property Name="SalesIncomeRecordID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SalesIncomeID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesInvoice ">
+          <Key>
+            <PropertyRef Name="SalesInvoiceID" />
+          </Key>
+          <Property Name="SalesInvoiceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UniformID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InvoiceDate" Type="date" Nullable="false" />
+          <Property Name="OutputTaxCharges" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccountingDepartmentHandleEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PayName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SalesRequestPaymentID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesOrder">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderDate" Type="date" Nullable="false" />
+          <Property Name="ToName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="RecipientPlace" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RecipientsPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ExpectedReceiptDate" Type="date" Nullable="false" />
+          <Property Name="Qty" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TotalQty" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PurchaseAmount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TotalOrderAmount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessProcessEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="WarehouseDealingEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="QuotationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesRequestPayment">
+          <Key>
+            <PropertyRef Name="SalesRequestPaymentID" />
+          </Key>
+          <Property Name="SalesRequestPaymentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RequestDate" Type="date" Nullable="false" />
+          <Property Name="ExportAccount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Deadline" Type="date" Nullable="false" />
+          <Property Name="AccountingStaff" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Payer" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SalesRequestPaymentRecordID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesRequestPaymentRecord">
+          <Key>
+            <PropertyRef Name="SalesRequestPaymentRecordID" />
+          </Key>
+          <Property Name="SalesRequestPaymentRecordID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountingDepartmentEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PackingListID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesReturns">
+          <Key>
+            <PropertyRef Name="SalesReturnsID" />
+          </Key>
+          <Property Name="SalesReturnsID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" Nullable="false" />
+          <Property Name="ReturnsNames" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReturnPersonPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReturnReason" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ReturnQty" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReturnTotalQty" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReturnMoney" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReturnsTotalAmount" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessProcessEmployee" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PackingListID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StorageVoucher">
+          <Key>
+            <PropertyRef Name="StorageVoucherID" />
+          </Key>
+          <Property Name="StorageVoucherID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WarehouseStaff" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Purchase" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="StorageDate" Type="date" Nullable="false" />
+          <Property Name="PurchaseID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupplierPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SupplierEmail" Type="nvarchar" MaxLength="30" />
+          <Property Name="SupplierAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResponsiblePerson" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SupplyRawMaterial" Type="nvarchar" MaxLength="20" />
+          <Property Name="RawMaterialPrice" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_BOMList_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="BOMList" Type="Self.BOMList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BOMList">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_InventoryRecord">
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventoryRecord">
+              <PropertyRef Name="InventoryRecordID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="InventoryRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_MaterialInventoryRecord">
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialInventoryRecord">
+              <PropertyRef Name="MaterialInventoryRecordID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="MaterialInventoryRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_PurchaseInvoice">
+          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseInvoice">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_PurchaseInvoice1">
+          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseInvoice">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_PurchaseRequestPayment">
+          <End Role="PurchaseRequestPayment" Type="Self.PurchaseRequestPayment" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseRequestPayment">
+              <PropertyRef Name="PurchaseRequestPaymentID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="PurchaseRequestPaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_SalesIncomeRecord">
+          <End Role="SalesIncomeRecord" Type="Self.SalesIncomeRecord" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesIncomeRecord">
+              <PropertyRef Name="SalesIncomeRecordID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="SalesIncomeRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_SalesInvoice">
+          <End Role="SalesInvoice " Type="Self.SalesInvoice " Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesInvoice ">
+              <PropertyRef Name="SalesInvoiceID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="SalesInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inquiry_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Inquiry" Type="Self.Inquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Inquiry">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryReceipt_ProductionOrder">
+          <End Role="ProductionOrder" Type="Self.ProductionOrder" Multiplicity="1" />
+          <End Role="InventoryReceipt" Type="Self.InventoryReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionOrder">
+              <PropertyRef Name="ProductionOrderID" />
+            </Principal>
+            <Dependent Role="InventoryReceipt">
+              <PropertyRef Name="ProductionOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_InventoryRecord">
+          <End Role="InventoryReceipt" Type="Self.InventoryReceipt" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventoryReceipt">
+              <PropertyRef Name="InventoryReceiptID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="InventorySingle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_Product1">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_ProductionOrder">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ShipperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_ProductionOrder1">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ShipperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_ProductionOrder">
+          <End Role="ProductionOrder" Type="Self.ProductionOrder" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionOrder">
+              <PropertyRef Name="ProductionOrderID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="ProductionOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_StorageVoucher">
+          <End Role="StorageVoucher" Type="Self.StorageVoucher" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageVoucher">
+              <PropertyRef Name="StorageVoucherID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="ReceiptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_Suppliers1">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PackingList_SalesOrder">
+          <End Role="SalesOrder" Type="Self.SalesOrder" Multiplicity="1" />
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrder">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="PackingList">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionOrder_BOMList">
+          <End Role="BOMList" Type="Self.BOMList" Multiplicity="1" />
+          <End Role="ProductionOrder" Type="Self.ProductionOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOMList">
+              <PropertyRef Name="BOMID" />
+            </Principal>
+            <Dependent Role="ProductionOrder">
+              <PropertyRef Name="BOMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_PurchaseRequisition">
+          <End Role="PurchaseRequisition" Type="Self.PurchaseRequisition" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseRequisition">
+              <PropertyRef Name="PurchaseRequisitionID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="PurchaseRequisitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseInvoice_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseInvoice">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseRequestPayment_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseRequestPayment" Type="Self.PurchaseRequestPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseRequestPayment">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturns_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseReturns" Type="Self.PurchaseReturns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseReturns">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quotation_Inquiry">
+          <End Role="Inquiry" Type="Self.Inquiry" Multiplicity="1" />
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inquiry">
+              <PropertyRef Name="InquiryID" />
+            </Principal>
+            <Dependent Role="Quotation">
+              <PropertyRef Name="InquiryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesCharts_PackingList">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="SalesCharts" Type="Self.SalesCharts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="SalesCharts">
+              <PropertyRef Name="PackingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesIncome_SalesRequestPayment">
+          <End Role="SalesRequestPayment" Type="Self.SalesRequestPayment" Multiplicity="1" />
+          <End Role="SalesIncome" Type="Self.SalesIncome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRequestPayment">
+              <PropertyRef Name="SalesRequestPaymentID" />
+            </Principal>
+            <Dependent Role="SalesIncome">
+              <PropertyRef Name="SalesRequestPaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesIncomeRecord_SalesIncome">
+          <End Role="SalesIncome" Type="Self.SalesIncome" Multiplicity="1" />
+          <End Role="SalesIncomeRecord" Type="Self.SalesIncomeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesIncome">
+              <PropertyRef Name="SalesIncomeID" />
+            </Principal>
+            <Dependent Role="SalesIncomeRecord">
+              <PropertyRef Name="SalesIncomeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesInvoice _SalesRequestPayment">
+          <End Role="SalesRequestPaymentRecord" Type="Self.SalesRequestPaymentRecord" Multiplicity="1" />
+          <End Role="SalesInvoice " Type="Self.SalesInvoice " Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRequestPaymentRecord">
+              <PropertyRef Name="SalesRequestPaymentRecordID" />
+            </Principal>
+            <Dependent Role="SalesInvoice ">
+              <PropertyRef Name="SalesRequestPaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrder_Customer">
+          <End Role="CustomerProfile" Type="Self.CustomerProfile" Multiplicity="1" />
+          <End Role="SalesOrder" Type="Self.SalesOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerProfile">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesOrder">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrder_Quotation">
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="1" />
+          <End Role="SalesOrder" Type="Self.SalesOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quotation">
+              <PropertyRef Name="QuotationID" />
+            </Principal>
+            <Dependent Role="SalesOrder">
+              <PropertyRef Name="QuotationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRequestPayment_SalesRequestPaymentRecord">
+          <End Role="SalesRequestPaymentRecord" Type="Self.SalesRequestPaymentRecord" Multiplicity="1" />
+          <End Role="SalesRequestPayment" Type="Self.SalesRequestPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRequestPaymentRecord">
+              <PropertyRef Name="SalesRequestPaymentRecordID" />
+            </Principal>
+            <Dependent Role="SalesRequestPayment">
+              <PropertyRef Name="SalesRequestPaymentRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRequestPaymentRecord_PackingList">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="SalesRequestPaymentRecord" Type="Self.SalesRequestPaymentRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="SalesRequestPaymentRecord">
+              <PropertyRef Name="PackingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesReturns_PackingList">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="SalesReturns" Type="Self.SalesReturns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="SalesReturns">
+              <PropertyRef Name="PackingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StorageVoucher_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="StorageVoucher" Type="Self.StorageVoucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="StorageVoucher">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KUASCYCModelStoreContainer">
+          <EntitySet Name="BOMList" EntityType="Self.BOMList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerProfile" EntityType="Self.CustomerProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncomeStatement" EntityType="Self.IncomeStatement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inquiry" EntityType="Self.Inquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InventoryReceipt" EntityType="Self.InventoryReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InventoryRecord" EntityType="Self.InventoryRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialInventoryRecord" EntityType="Self.MaterialInventoryRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PackingList" EntityType="Self.PackingList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductionOrder" EntityType="Self.ProductionOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseInvoice" EntityType="Self.PurchaseInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseRequestPayment" EntityType="Self.PurchaseRequestPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseRequisition" EntityType="Self.PurchaseRequisition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseReturns" EntityType="Self.PurchaseReturns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quotation" EntityType="Self.Quotation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesCharts" EntityType="Self.SalesCharts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesIncome" EntityType="Self.SalesIncome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesIncomeRecord" EntityType="Self.SalesIncomeRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesInvoice " EntityType="Self.SalesInvoice " Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesOrder" EntityType="Self.SalesOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesRequestPayment" EntityType="Self.SalesRequestPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesRequestPaymentRecord" EntityType="Self.SalesRequestPaymentRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesReturns" EntityType="Self.SalesReturns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageVoucher" EntityType="Self.StorageVoucher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Account" EntityType="Self.Account" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Account].[ID] AS [ID], 
+    [Account].[UsreName] AS [UsreName], 
+    [Account].[UserPassword] AS [UserPassword], 
+    [Account].[OfficialRank] AS [OfficialRank], 
+    [Account].[CreateTime] AS [CreateTime], 
+    [Account].[LastLoginTime] AS [LastLoginTime], 
+    [Account].[Islogin] AS [Islogin]
+    FROM [dbo].[Account] AS [Account]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BOMList_Product" Association="Self.FK_BOMList_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="BOMList" EntitySet="BOMList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_InventoryRecord" Association="Self.FK_IncomeStatement_InventoryRecord">
+            <End Role="InventoryRecord" EntitySet="InventoryRecord" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_MaterialInventoryRecord" Association="Self.FK_IncomeStatement_MaterialInventoryRecord">
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecord" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_PurchaseInvoice" Association="Self.FK_IncomeStatement_PurchaseInvoice">
+            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoice" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_PurchaseInvoice1" Association="Self.FK_IncomeStatement_PurchaseInvoice1">
+            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoice" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_PurchaseRequestPayment" Association="Self.FK_IncomeStatement_PurchaseRequestPayment">
+            <End Role="PurchaseRequestPayment" EntitySet="PurchaseRequestPayment" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_SalesIncomeRecord" Association="Self.FK_IncomeStatement_SalesIncomeRecord">
+            <End Role="SalesIncomeRecord" EntitySet="SalesIncomeRecord" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_SalesInvoice" Association="Self.FK_IncomeStatement_SalesInvoice">
+            <End Role="SalesInvoice " EntitySet="SalesInvoice " />
+            <End Role="IncomeStatement" EntitySet="IncomeStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inquiry_Product" Association="Self.FK_Inquiry_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Inquiry" EntitySet="Inquiry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryReceipt_ProductionOrder" Association="Self.FK_InventoryReceipt_ProductionOrder">
+            <End Role="ProductionOrder" EntitySet="ProductionOrder" />
+            <End Role="InventoryReceipt" EntitySet="InventoryReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_InventoryRecord" Association="Self.FK_InventoryRecord_InventoryRecord">
+            <End Role="InventoryReceipt" EntitySet="InventoryReceipt" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_Product" Association="Self.FK_InventoryRecord_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_Product1" Association="Self.FK_InventoryRecord_Product1">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_ProductionOrder" Association="Self.FK_InventoryRecord_ProductionOrder">
+            <End Role="PackingList" EntitySet="PackingList" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_ProductionOrder1" Association="Self.FK_InventoryRecord_ProductionOrder1">
+            <End Role="PackingList" EntitySet="PackingList" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_ProductionOrder" Association="Self.FK_MaterialInventoryRecord_ProductionOrder">
+            <End Role="ProductionOrder" EntitySet="ProductionOrder" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_StorageVoucher" Association="Self.FK_MaterialInventoryRecord_StorageVoucher">
+            <End Role="StorageVoucher" EntitySet="StorageVoucher" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_Suppliers" Association="Self.FK_MaterialInventoryRecord_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_Suppliers1" Association="Self.FK_MaterialInventoryRecord_Suppliers1">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PackingList_SalesOrder" Association="Self.FK_PackingList_SalesOrder">
+            <End Role="SalesOrder" EntitySet="SalesOrder" />
+            <End Role="PackingList" EntitySet="PackingList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionOrder_BOMList" Association="Self.FK_ProductionOrder_BOMList">
+            <End Role="BOMList" EntitySet="BOMList" />
+            <End Role="ProductionOrder" EntitySet="ProductionOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_PurchaseRequisition" Association="Self.FK_Purchase_PurchaseRequisition">
+            <End Role="PurchaseRequisition" EntitySet="PurchaseRequisition" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Suppliers" Association="Self.FK_Purchase_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseInvoice_Purchase" Association="Self.FK_PurchaseInvoice_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseRequestPayment_Purchase" Association="Self.FK_PurchaseRequestPayment_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchaseRequestPayment" EntitySet="PurchaseRequestPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturns_Purchase" Association="Self.FK_PurchaseReturns_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchaseReturns" EntitySet="PurchaseReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_Inquiry" Association="Self.FK_Quotation_Inquiry">
+            <End Role="Inquiry" EntitySet="Inquiry" />
+            <End Role="Quotation" EntitySet="Quotation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesCharts_PackingList" Association="Self.FK_SalesCharts_PackingList">
+            <End Role="PackingList" EntitySet="PackingList" />
+            <End Role="SalesCharts" EntitySet="SalesCharts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesIncome_SalesRequestPayment" Association="Self.FK_SalesIncome_SalesRequestPayment">
+            <End Role="SalesRequestPayment" EntitySet="SalesRequestPayment" />
+            <End Role="SalesIncome" EntitySet="SalesIncome" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesIncomeRecord_SalesIncome" Association="Self.FK_SalesIncomeRecord_SalesIncome">
+            <End Role="SalesIncome" EntitySet="SalesIncome" />
+            <End Role="SalesIncomeRecord" EntitySet="SalesIncomeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesInvoice _SalesRequestPayment" Association="Self.FK_SalesInvoice _SalesRequestPayment">
+            <End Role="SalesRequestPaymentRecord" EntitySet="SalesRequestPaymentRecord" />
+            <End Role="SalesInvoice " EntitySet="SalesInvoice " />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrder_Customer" Association="Self.FK_SalesOrder_Customer">
+            <End Role="CustomerProfile" EntitySet="CustomerProfile" />
+            <End Role="SalesOrder" EntitySet="SalesOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrder_Quotation" Association="Self.FK_SalesOrder_Quotation">
+            <End Role="Quotation" EntitySet="Quotation" />
+            <End Role="SalesOrder" EntitySet="SalesOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRequestPayment_SalesRequestPaymentRecord" Association="Self.FK_SalesRequestPayment_SalesRequestPaymentRecord">
+            <End Role="SalesRequestPaymentRecord" EntitySet="SalesRequestPaymentRecord" />
+            <End Role="SalesRequestPayment" EntitySet="SalesRequestPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRequestPaymentRecord_PackingList" Association="Self.FK_SalesRequestPaymentRecord_PackingList">
+            <End Role="PackingList" EntitySet="PackingList" />
+            <End Role="SalesRequestPaymentRecord" EntitySet="SalesRequestPaymentRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesReturns_PackingList" Association="Self.FK_SalesReturns_PackingList">
+            <End Role="PackingList" EntitySet="PackingList" />
+            <End Role="SalesReturns" EntitySet="SalesReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StorageVoucher_Purchase" Association="Self.FK_StorageVoucher_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="StorageVoucher" EntitySet="StorageVoucher" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KUASCYCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BOMList">
+          <Key>
+            <PropertyRef Name="BOMID" />
+          </Key>
+          <Property Name="BOMID" Type="Guid" Nullable="false" />
+          <Property Name="MaterialName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialQuantity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_BOMList_Product" FromRole="BOMList" ToRole="Product" />
+          <NavigationProperty Name="ProductionOrders" Relationship="Self.FK_ProductionOrder_BOMList" FromRole="BOMList" ToRole="ProductionOrder" />
+        </EntityType>
+        <EntityType Name="CustomerProfile">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactsPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResponsiblePerson" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RemittanceAccount" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SalesOrders" Relationship="Self.FK_SalesOrder_Customer" FromRole="CustomerProfile" ToRole="SalesOrder" />
+        </EntityType>
+        <EntityType Name="IncomeStatement">
+          <Key>
+            <PropertyRef Name="IncomeStatementID" />
+          </Key>
+          <Property Name="IncomeStatementID" Type="Guid" Nullable="false" />
+          <Property Name="AnnualStatistics" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PreTaxIncome" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NetIncome" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalesIncomeRecordID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseRequestPaymentID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseInvoiceID" Type="Guid" Nullable="false" />
+          <Property Name="SalesInvoiceID" Type="Guid" Nullable="false" />
+          <Property Name="InventoryRecordID" Type="Guid" Nullable="false" />
+          <Property Name="MaterialInventoryRecordID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="InventoryRecord" Relationship="Self.FK_IncomeStatement_InventoryRecord" FromRole="IncomeStatement" ToRole="InventoryRecord" />
+          <NavigationProperty Name="MaterialInventoryRecord" Relationship="Self.FK_IncomeStatement_MaterialInventoryRecord" FromRole="IncomeStatement" ToRole="MaterialInventoryRecord" />
+          <NavigationProperty Name="PurchaseInvoice" Relationship="Self.FK_IncomeStatement_PurchaseInvoice" FromRole="IncomeStatement" ToRole="PurchaseInvoice" />
+          <NavigationProperty Name="PurchaseInvoice1" Relationship="Self.FK_IncomeStatement_PurchaseInvoice1" FromRole="IncomeStatement" ToRole="PurchaseInvoice" />
+          <NavigationProperty Name="PurchaseRequestPayment" Relationship="Self.FK_IncomeStatement_PurchaseRequestPayment" FromRole="IncomeStatement" ToRole="PurchaseRequestPayment" />
+          <NavigationProperty Name="SalesIncomeRecord" Relationship="Self.FK_IncomeStatement_SalesIncomeRecord" FromRole="IncomeStatement" ToRole="SalesIncomeRecord" />
+          <NavigationProperty Name="SalesInvoice_" Relationship="Self.FK_IncomeStatement_SalesInvoice" FromRole="IncomeStatement" ToRole="SalesInvoice_" />
+        </EntityType>
+        <EntityType Name="Inquiry">
+          <Key>
+            <PropertyRef Name="InquiryID" />
+          </Key>
+          <Property Name="InquiryID" Type="Guid" Nullable="false" />
+          <Property Name="InquiryName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InquiryDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ContactsPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_MAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalQty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Inquiry_Product" FromRole="Inquiry" ToRole="Product" />
+          <NavigationProperty Name="Quotations" Relationship="Self.FK_Quotation_Inquiry" FromRole="Inquiry" ToRole="Quotation" />
+        </EntityType>
+        <EntityType Name="InventoryReceipt">
+          <Key>
+            <PropertyRef Name="InventoryReceiptID" />
+          </Key>
+          <Property Name="InventoryReceiptID" Type="Guid" Nullable="false" />
+          <Property Name="ProductionInChargeOfName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WarehouseResponsibleName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InventoryDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ProductionOrderID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="ProductionOrder" Relationship="Self.FK_InventoryReceipt_ProductionOrder" FromRole="InventoryReceipt" ToRole="ProductionOrder" />
+          <NavigationProperty Name="InventoryRecords" Relationship="Self.FK_InventoryRecord_InventoryRecord" FromRole="InventoryReceipt" ToRole="InventoryRecord" />
+        </EntityType>
+        <EntityType Name="InventoryRecord">
+          <Key>
+            <PropertyRef Name="InventoryRecordID" />
+          </Key>
+          <Property Name="InventoryRecordID" Type="Guid" Nullable="false" />
+          <Property Name="ProductStocks" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SafetyStock" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastRecordedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WarehouseRecordName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Guid" Nullable="false" />
+          <Property Name="InventorySingle" Type="Guid" Nullable="false" />
+          <Property Name="ShipperID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="IncomeStatements" Relationship="Self.FK_IncomeStatement_InventoryRecord" FromRole="InventoryRecord" ToRole="IncomeStatement" />
+          <NavigationProperty Name="InventoryReceipt" Relationship="Self.FK_InventoryRecord_InventoryRecord" FromRole="InventoryRecord" ToRole="InventoryReceipt" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_InventoryRecord_Product" FromRole="InventoryRecord" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_InventoryRecord_Product1" FromRole="InventoryRecord" ToRole="Product" />
+          <NavigationProperty Name="PackingList" Relationship="Self.FK_InventoryRecord_ProductionOrder" FromRole="InventoryRecord" ToRole="PackingList" />
+          <NavigationProperty Name="PackingList1" Relationship="Self.FK_InventoryRecord_ProductionOrder1" FromRole="InventoryRecord" ToRole="PackingList" />
+        </EntityType>
+        <EntityType Name="MaterialInventoryRecord">
+          <Key>
+            <PropertyRef Name="MaterialInventoryRecordID" />
+          </Key>
+          <Property Name="MaterialInventoryRecordID" Type="Guid" Nullable="false" />
+          <Property Name="MaterialName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialSpecifications" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Inventory" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SafetyStock" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LastRecordedDate" Type="DateTime" Precision="0" />
+          <Property Name="CangguanLastRecordName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="VendorID" Type="Guid" Nullable="false" />
+          <Property Name="ReceiptID" Type="Guid" Nullable="false" />
+          <Property Name="ProductionOrderID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="IncomeStatements" Relationship="Self.FK_IncomeStatement_MaterialInventoryRecord" FromRole="MaterialInventoryRecord" ToRole="IncomeStatement" />
+          <NavigationProperty Name="ProductionOrder" Relationship="Self.FK_MaterialInventoryRecord_ProductionOrder" FromRole="MaterialInventoryRecord" ToRole="ProductionOrder" />
+          <NavigationProperty Name="StorageVoucher" Relationship="Self.FK_MaterialInventoryRecord_StorageVoucher" FromRole="MaterialInventoryRecord" ToRole="StorageVoucher" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_MaterialInventoryRecord_Suppliers" FromRole="MaterialInventoryRecord" ToRole="Suppliers" />
+          <NavigationProperty Name="Supplier1" Relationship="Self.FK_MaterialInventoryRecord_Suppliers1" FromRole="MaterialInventoryRecord" ToRole="Suppliers" />
+        </EntityType>
+        <EntityType Name="PackingList">
+          <Key>
+            <PropertyRef Name="PackingListID" />
+          </Key>
+          <Property Name="PackingListID" Type="Guid" Nullable="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Deliveryman" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WarehouseStaff" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessProcessEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalesOrderID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="InventoryRecords" Relationship="Self.FK_InventoryRecord_ProductionOrder" FromRole="PackingList" ToRole="InventoryRecord" />
+          <NavigationProperty Name="InventoryRecords1" Relationship="Self.FK_InventoryRecord_ProductionOrder1" FromRole="PackingList" ToRole="InventoryRecord" />
+          <NavigationProperty Name="SalesOrder" Relationship="Self.FK_PackingList_SalesOrder" FromRole="PackingList" ToRole="SalesOrder" />
+          <NavigationProperty Name="SalesCharts" Relationship="Self.FK_SalesCharts_PackingList" FromRole="PackingList" ToRole="SalesCharts" />
+          <NavigationProperty Name="SalesRequestPaymentRecords" Relationship="Self.FK_SalesRequestPaymentRecord_PackingList" FromRole="PackingList" ToRole="SalesRequestPaymentRecord" />
+          <NavigationProperty Name="SalesReturns" Relationship="Self.FK_SalesReturns_PackingList" FromRole="PackingList" ToRole="SalesReturns" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Guid" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductSpecifications" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BOMLists" Relationship="Self.FK_BOMList_Product" FromRole="Product" ToRole="BOMList" />
+          <NavigationProperty Name="Inquiries" Relationship="Self.FK_Inquiry_Product" FromRole="Product" ToRole="Inquiry" />
+          <NavigationProperty Name="InventoryRecords" Relationship="Self.FK_InventoryRecord_Product" FromRole="Product" ToRole="InventoryRecord" />
+          <NavigationProperty Name="InventoryRecords1" Relationship="Self.FK_InventoryRecord_Product1" FromRole="Product" ToRole="InventoryRecord" />
+        </EntityType>
+        <EntityType Name="ProductionOrder">
+          <Key>
+            <PropertyRef Name="ProductionOrderID" />
+          </Key>
+          <Property Name="ProductionOrderID" Type="Guid" Nullable="false" />
+          <Property Name="StartProductionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Closingdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ProductionProductName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductionProductSpecifications" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuantityProduction" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalQuantityProduction" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CangguanApplyEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductionProcessingEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BOMID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="BOMList" Relationship="Self.FK_ProductionOrder_BOMList" FromRole="ProductionOrder" ToRole="BOMList" />
+          <NavigationProperty Name="InventoryReceipts" Relationship="Self.FK_InventoryReceipt_ProductionOrder" FromRole="ProductionOrder" ToRole="InventoryReceipt" />
+          <NavigationProperty Name="MaterialInventoryRecords" Relationship="Self.FK_MaterialInventoryRecord_ProductionOrder" FromRole="ProductionOrder" ToRole="MaterialInventoryRecord" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="PurchaseID" />
+          </Key>
+          <Property Name="PurchaseID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LimitedReceiptDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PurchaseAmount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalPurchaseAmount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReceiptLocation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchasingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupplierEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupplierID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseRequisitionID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="PurchaseRequisition" Relationship="Self.FK_Purchase_PurchaseRequisition" FromRole="Purchase" ToRole="PurchaseRequisition" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Purchase_Suppliers" FromRole="Purchase" ToRole="Suppliers" />
+          <NavigationProperty Name="PurchaseInvoices" Relationship="Self.FK_PurchaseInvoice_Purchase" FromRole="Purchase" ToRole="PurchaseInvoice" />
+          <NavigationProperty Name="PurchaseRequestPayments" Relationship="Self.FK_PurchaseRequestPayment_Purchase" FromRole="Purchase" ToRole="PurchaseRequestPayment" />
+          <NavigationProperty Name="PurchaseReturns" Relationship="Self.FK_PurchaseReturns_Purchase" FromRole="Purchase" ToRole="PurchaseReturns" />
+          <NavigationProperty Name="StorageVouchers" Relationship="Self.FK_StorageVoucher_Purchase" FromRole="Purchase" ToRole="StorageVoucher" />
+        </EntityType>
+        <EntityType Name="PurchaseInvoice">
+          <Key>
+            <PropertyRef Name="PurchaseInvoiceID" />
+          </Key>
+          <Property Name="PurchaseInvoiceID" Type="Guid" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VATcharges" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PurchasingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PurchaseID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="IncomeStatements" Relationship="Self.FK_IncomeStatement_PurchaseInvoice" FromRole="PurchaseInvoice" ToRole="IncomeStatement" />
+          <NavigationProperty Name="IncomeStatements1" Relationship="Self.FK_IncomeStatement_PurchaseInvoice1" FromRole="PurchaseInvoice" ToRole="IncomeStatement" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK_PurchaseInvoice_Purchase" FromRole="PurchaseInvoice" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="PurchaseRequestPayment">
+          <Key>
+            <PropertyRef Name="PurchaseRequestPaymentID" />
+          </Key>
+          <Property Name="PurchaseRequestPaymentID" Type="Guid" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ImportAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deadline" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Remark" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PurchasingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PurchaseID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="IncomeStatements" Relationship="Self.FK_IncomeStatement_PurchaseRequestPayment" FromRole="PurchaseRequestPayment" ToRole="IncomeStatement" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK_PurchaseRequestPayment_Purchase" FromRole="PurchaseRequestPayment" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="PurchaseRequisition">
+          <Key>
+            <PropertyRef Name="PurchaseRequisitionID" />
+          </Key>
+          <Property Name="PurchaseRequisitionID" Type="Guid" Nullable="false" />
+          <Property Name="ApplicationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PurchaseQuantity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalPurchaseQuantity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CangguanEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PurchasingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchase_PurchaseRequisition" FromRole="PurchaseRequisition" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="PurchaseReturn">
+          <Key>
+            <PropertyRef Name="PurchaseReturnsID" />
+          </Key>
+          <Property Name="PurchaseReturnsID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseReturnsDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PurchaseReturnsQuantity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PurchaseReturnsTotalQuantity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PurchaseReturnsReason" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReplenishmentLimitedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK_PurchaseReturns_Purchase" FromRole="PurchaseReturns" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="Quotation">
+          <Key>
+            <PropertyRef Name="QuotationID" />
+          </Key>
+          <Property Name="QuotationID" Type="Guid" Nullable="false" />
+          <Property Name="BusinessOrdersEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuoteDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OfferAmount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InquiryID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Inquiry" Relationship="Self.FK_Quotation_Inquiry" FromRole="Quotation" ToRole="Inquiry" />
+          <NavigationProperty Name="SalesOrders" Relationship="Self.FK_SalesOrder_Quotation" FromRole="Quotation" ToRole="SalesOrder" />
+        </EntityType>
+        <EntityType Name="SalesChart">
+          <Key>
+            <PropertyRef Name="SalesChartsID" />
+          </Key>
+          <Property Name="SalesChartsID" Type="Guid" Nullable="false" />
+          <Property Name="AnnualRanking" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TopRanking" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LessPopularRanking" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TopRankingName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LessPopularRankingName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TopProductSpecifications" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Less_popular_Product_Specifications" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PackingListID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="PackingList" Relationship="Self.FK_SalesCharts_PackingList" FromRole="SalesCharts" ToRole="PackingList" />
+        </EntityType>
+        <EntityType Name="SalesIncome">
+          <Key>
+            <PropertyRef Name="SalesIncomeID" />
+          </Key>
+          <Property Name="SalesIncomeID" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payer" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalesRequestPaymentID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="SalesRequestPayment" Relationship="Self.FK_SalesIncome_SalesRequestPayment" FromRole="SalesIncome" ToRole="SalesRequestPayment" />
+          <NavigationProperty Name="SalesIncomeRecords" Relationship="Self.FK_SalesIncomeRecord_SalesIncome" FromRole="SalesIncome" ToRole="SalesIncomeRecord" />
+        </EntityType>
+        <EntityType Name="SalesIncomeRecord">
+          <Key>
+            <PropertyRef Name="SalesIncomeRecordID" />
+          </Key>
+          <Property Name="SalesIncomeRecordID" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AccountNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalesIncomeID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="IncomeStatements" Relationship="Self.FK_IncomeStatement_SalesIncomeRecord" FromRole="SalesIncomeRecord" ToRole="IncomeStatement" />
+          <NavigationProperty Name="SalesIncome" Relationship="Self.FK_SalesIncomeRecord_SalesIncome" FromRole="SalesIncomeRecord" ToRole="SalesIncome" />
+        </EntityType>
+        <EntityType Name="SalesInvoice_">
+          <Key>
+            <PropertyRef Name="SalesInvoiceID" />
+          </Key>
+          <Property Name="SalesInvoiceID" Type="Guid" Nullable="false" />
+          <Property Name="UniformID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OutputTaxCharges" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountingDepartmentHandleEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PayName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalesRequestPaymentID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="IncomeStatements" Relationship="Self.FK_IncomeStatement_SalesInvoice" FromRole="SalesInvoice_" ToRole="IncomeStatement" />
+          <NavigationProperty Name="SalesRequestPaymentRecord" Relationship="Self.FK_SalesInvoice__SalesRequestPayment" FromRole="SalesInvoice_" ToRole="SalesRequestPaymentRecord" />
+        </EntityType>
+        <EntityType Name="SalesOrder">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="Guid" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecipientPlace" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecipientsPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExpectedReceiptDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Qty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalQty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PurchaseAmount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalOrderAmount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessProcessEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WarehouseDealingEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuotationID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="CustomerProfile" Relationship="Self.FK_SalesOrder_Customer" FromRole="SalesOrder" ToRole="CustomerProfile" />
+          <NavigationProperty Name="PackingLists" Relationship="Self.FK_PackingList_SalesOrder" FromRole="SalesOrder" ToRole="PackingList" />
+          <NavigationProperty Name="Quotation" Relationship="Self.FK_SalesOrder_Quotation" FromRole="SalesOrder" ToRole="Quotation" />
+        </EntityType>
+        <EntityType Name="SalesRequestPayment">
+          <Key>
+            <PropertyRef Name="SalesRequestPaymentID" />
+          </Key>
+          <Property Name="SalesRequestPaymentID" Type="Guid" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ExportAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deadline" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AccountingStaff" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Payer" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalesRequestPaymentRecordID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="SalesIncomes" Relationship="Self.FK_SalesIncome_SalesRequestPayment" FromRole="SalesRequestPayment" ToRole="SalesIncome" />
+          <NavigationProperty Name="SalesRequestPaymentRecord" Relationship="Self.FK_SalesRequestPayment_SalesRequestPaymentRecord" FromRole="SalesRequestPayment" ToRole="SalesRequestPaymentRecord" />
+        </EntityType>
+        <EntityType Name="SalesRequestPaymentRecord">
+          <Key>
+            <PropertyRef Name="SalesRequestPaymentRecordID" />
+          </Key>
+          <Property Name="SalesRequestPaymentRecordID" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountingDepartmentEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PackingListID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="PackingList" Relationship="Self.FK_SalesRequestPaymentRecord_PackingList" FromRole="SalesRequestPaymentRecord" ToRole="PackingList" />
+          <NavigationProperty Name="SalesInvoice_" Relationship="Self.FK_SalesInvoice__SalesRequestPayment" FromRole="SalesRequestPaymentRecord" ToRole="SalesInvoice_" />
+          <NavigationProperty Name="SalesRequestPayments" Relationship="Self.FK_SalesRequestPayment_SalesRequestPaymentRecord" FromRole="SalesRequestPaymentRecord" ToRole="SalesRequestPayment" />
+        </EntityType>
+        <EntityType Name="SalesReturn">
+          <Key>
+            <PropertyRef Name="SalesReturnsID" />
+          </Key>
+          <Property Name="SalesReturnsID" Type="Guid" Nullable="false" />
+          <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReturnsNames" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReturnPersonPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReturnReason" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReturnQty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReturnTotalQty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReturnMoney" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReturnsTotalAmount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessProcessEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PackingListID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="PackingList" Relationship="Self.FK_SalesReturns_PackingList" FromRole="SalesReturns" ToRole="PackingList" />
+        </EntityType>
+        <EntityType Name="StorageVoucher">
+          <Key>
+            <PropertyRef Name="StorageVoucherID" />
+          </Key>
+          <Property Name="StorageVoucherID" Type="Guid" Nullable="false" />
+          <Property Name="WarehouseStaff" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Purchase" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StorageDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PurchaseID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="MaterialInventoryRecords" Relationship="Self.FK_MaterialInventoryRecord_StorageVoucher" FromRole="StorageVoucher" ToRole="MaterialInventoryRecord" />
+          <NavigationProperty Name="Purchase1" Relationship="Self.FK_StorageVoucher_Purchase" FromRole="StorageVoucher" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Guid" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupplierPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupplierEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResponsiblePerson" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupplyRawMaterial" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RawMaterialPrice" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MaterialInventoryRecords" Relationship="Self.FK_MaterialInventoryRecord_Suppliers" FromRole="Suppliers" ToRole="MaterialInventoryRecord" />
+          <NavigationProperty Name="MaterialInventoryRecords1" Relationship="Self.FK_MaterialInventoryRecord_Suppliers1" FromRole="Suppliers" ToRole="MaterialInventoryRecord" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchase_Suppliers" FromRole="Suppliers" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UsreName" />
+            <PropertyRef Name="UserPassword" />
+            <PropertyRef Name="OfficialRank" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="Islogin" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="UsreName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OfficialRank" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="Islogin" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BOMList_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="BOMList" Type="Self.BOMList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BOMList">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionOrder_BOMList">
+          <End Role="BOMList" Type="Self.BOMList" Multiplicity="1" />
+          <End Role="ProductionOrder" Type="Self.ProductionOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOMList">
+              <PropertyRef Name="BOMID" />
+            </Principal>
+            <Dependent Role="ProductionOrder">
+              <PropertyRef Name="BOMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrder_Customer">
+          <End Role="CustomerProfile" Type="Self.CustomerProfile" Multiplicity="1" />
+          <End Role="SalesOrder" Type="Self.SalesOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerProfile">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesOrder">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_InventoryRecord">
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventoryRecord">
+              <PropertyRef Name="InventoryRecordID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="InventoryRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_MaterialInventoryRecord">
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialInventoryRecord">
+              <PropertyRef Name="MaterialInventoryRecordID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="MaterialInventoryRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_PurchaseInvoice">
+          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseInvoice">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_PurchaseInvoice1">
+          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseInvoice">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="PurchaseInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_PurchaseRequestPayment">
+          <End Role="PurchaseRequestPayment" Type="Self.PurchaseRequestPayment" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseRequestPayment">
+              <PropertyRef Name="PurchaseRequestPaymentID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="PurchaseRequestPaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_SalesIncomeRecord">
+          <End Role="SalesIncomeRecord" Type="Self.SalesIncomeRecord" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesIncomeRecord">
+              <PropertyRef Name="SalesIncomeRecordID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="SalesIncomeRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomeStatement_SalesInvoice">
+          <End Role="SalesInvoice_" Type="Self.SalesInvoice_" Multiplicity="1" />
+          <End Role="IncomeStatement" Type="Self.IncomeStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesInvoice_">
+              <PropertyRef Name="SalesInvoiceID" />
+            </Principal>
+            <Dependent Role="IncomeStatement">
+              <PropertyRef Name="SalesInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inquiry_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Inquiry" Type="Self.Inquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Inquiry">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quotation_Inquiry">
+          <End Role="Inquiry" Type="Self.Inquiry" Multiplicity="1" />
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inquiry">
+              <PropertyRef Name="InquiryID" />
+            </Principal>
+            <Dependent Role="Quotation">
+              <PropertyRef Name="InquiryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryReceipt_ProductionOrder">
+          <End Role="ProductionOrder" Type="Self.ProductionOrder" Multiplicity="1" />
+          <End Role="InventoryReceipt" Type="Self.InventoryReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionOrder">
+              <PropertyRef Name="ProductionOrderID" />
+            </Principal>
+            <Dependent Role="InventoryReceipt">
+              <PropertyRef Name="ProductionOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_InventoryRecord">
+          <End Role="InventoryReceipt" Type="Self.InventoryReceipt" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventoryReceipt">
+              <PropertyRef Name="InventoryReceiptID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="InventorySingle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_Product1">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_ProductionOrder">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ShipperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryRecord_ProductionOrder1">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="InventoryRecord" Type="Self.InventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="InventoryRecord">
+              <PropertyRef Name="ShipperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_ProductionOrder">
+          <End Role="ProductionOrder" Type="Self.ProductionOrder" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionOrder">
+              <PropertyRef Name="ProductionOrderID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="ProductionOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_StorageVoucher">
+          <End Role="StorageVoucher" Type="Self.StorageVoucher" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageVoucher">
+              <PropertyRef Name="StorageVoucherID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="ReceiptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_Suppliers">
+          <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialInventoryRecord_Suppliers1">
+          <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="MaterialInventoryRecord" Type="Self.MaterialInventoryRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="MaterialInventoryRecord">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PackingList_SalesOrder">
+          <End Role="SalesOrder" Type="Self.SalesOrder" Multiplicity="1" />
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrder">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="PackingList">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesCharts_PackingList">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="SalesCharts" Type="Self.SalesChart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="SalesCharts">
+              <PropertyRef Name="PackingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRequestPaymentRecord_PackingList">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="SalesRequestPaymentRecord" Type="Self.SalesRequestPaymentRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="SalesRequestPaymentRecord">
+              <PropertyRef Name="PackingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesReturns_PackingList">
+          <End Role="PackingList" Type="Self.PackingList" Multiplicity="1" />
+          <End Role="SalesReturns" Type="Self.SalesReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PackingList">
+              <PropertyRef Name="PackingListID" />
+            </Principal>
+            <Dependent Role="SalesReturns">
+              <PropertyRef Name="PackingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_PurchaseRequisition">
+          <End Role="PurchaseRequisition" Type="Self.PurchaseRequisition" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseRequisition">
+              <PropertyRef Name="PurchaseRequisitionID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="PurchaseRequisitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Suppliers">
+          <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseInvoice_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseInvoice">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseRequestPayment_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseRequestPayment" Type="Self.PurchaseRequestPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseRequestPayment">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturns_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseReturns" Type="Self.PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseReturns">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StorageVoucher_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="StorageVoucher" Type="Self.StorageVoucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="StorageVoucher">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrder_Quotation">
+          <End Role="Quotation" Type="Self.Quotation" Multiplicity="1" />
+          <End Role="SalesOrder" Type="Self.SalesOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quotation">
+              <PropertyRef Name="QuotationID" />
+            </Principal>
+            <Dependent Role="SalesOrder">
+              <PropertyRef Name="QuotationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesIncome_SalesRequestPayment">
+          <End Role="SalesRequestPayment" Type="Self.SalesRequestPayment" Multiplicity="1" />
+          <End Role="SalesIncome" Type="Self.SalesIncome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRequestPayment">
+              <PropertyRef Name="SalesRequestPaymentID" />
+            </Principal>
+            <Dependent Role="SalesIncome">
+              <PropertyRef Name="SalesRequestPaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesIncomeRecord_SalesIncome">
+          <End Role="SalesIncome" Type="Self.SalesIncome" Multiplicity="1" />
+          <End Role="SalesIncomeRecord" Type="Self.SalesIncomeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesIncome">
+              <PropertyRef Name="SalesIncomeID" />
+            </Principal>
+            <Dependent Role="SalesIncomeRecord">
+              <PropertyRef Name="SalesIncomeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesInvoice__SalesRequestPayment">
+          <End Role="SalesRequestPaymentRecord" Type="Self.SalesRequestPaymentRecord" Multiplicity="1" />
+          <End Role="SalesInvoice_" Type="Self.SalesInvoice_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRequestPaymentRecord">
+              <PropertyRef Name="SalesRequestPaymentRecordID" />
+            </Principal>
+            <Dependent Role="SalesInvoice_">
+              <PropertyRef Name="SalesRequestPaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRequestPayment_SalesRequestPaymentRecord">
+          <End Role="SalesRequestPaymentRecord" Type="Self.SalesRequestPaymentRecord" Multiplicity="1" />
+          <End Role="SalesRequestPayment" Type="Self.SalesRequestPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRequestPaymentRecord">
+              <PropertyRef Name="SalesRequestPaymentRecordID" />
+            </Principal>
+            <Dependent Role="SalesRequestPayment">
+              <PropertyRef Name="SalesRequestPaymentRecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KUASCYCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BOMLists" EntityType="Self.BOMList" />
+          <EntitySet Name="CustomerProfiles" EntityType="Self.CustomerProfile" />
+          <EntitySet Name="IncomeStatements" EntityType="Self.IncomeStatement" />
+          <EntitySet Name="Inquiries" EntityType="Self.Inquiry" />
+          <EntitySet Name="InventoryReceipts" EntityType="Self.InventoryReceipt" />
+          <EntitySet Name="InventoryRecords" EntityType="Self.InventoryRecord" />
+          <EntitySet Name="MaterialInventoryRecords" EntityType="Self.MaterialInventoryRecord" />
+          <EntitySet Name="PackingLists" EntityType="Self.PackingList" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductionOrders" EntityType="Self.ProductionOrder" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchase" />
+          <EntitySet Name="PurchaseInvoices" EntityType="Self.PurchaseInvoice" />
+          <EntitySet Name="PurchaseRequestPayments" EntityType="Self.PurchaseRequestPayment" />
+          <EntitySet Name="PurchaseRequisitions" EntityType="Self.PurchaseRequisition" />
+          <EntitySet Name="PurchaseReturns" EntityType="Self.PurchaseReturn" />
+          <EntitySet Name="Quotations" EntityType="Self.Quotation" />
+          <EntitySet Name="SalesCharts" EntityType="Self.SalesChart" />
+          <EntitySet Name="SalesIncomes" EntityType="Self.SalesIncome" />
+          <EntitySet Name="SalesIncomeRecords" EntityType="Self.SalesIncomeRecord" />
+          <EntitySet Name="SalesInvoice_" EntityType="Self.SalesInvoice_" />
+          <EntitySet Name="SalesOrders" EntityType="Self.SalesOrder" />
+          <EntitySet Name="SalesRequestPayments" EntityType="Self.SalesRequestPayment" />
+          <EntitySet Name="SalesRequestPaymentRecords" EntityType="Self.SalesRequestPaymentRecord" />
+          <EntitySet Name="SalesReturns" EntityType="Self.SalesReturn" />
+          <EntitySet Name="StorageVouchers" EntityType="Self.StorageVoucher" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <AssociationSet Name="FK_BOMList_Product" Association="Self.FK_BOMList_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="BOMList" EntitySet="BOMLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionOrder_BOMList" Association="Self.FK_ProductionOrder_BOMList">
+            <End Role="BOMList" EntitySet="BOMLists" />
+            <End Role="ProductionOrder" EntitySet="ProductionOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrder_Customer" Association="Self.FK_SalesOrder_Customer">
+            <End Role="CustomerProfile" EntitySet="CustomerProfiles" />
+            <End Role="SalesOrder" EntitySet="SalesOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_InventoryRecord" Association="Self.FK_IncomeStatement_InventoryRecord">
+            <End Role="InventoryRecord" EntitySet="InventoryRecords" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_MaterialInventoryRecord" Association="Self.FK_IncomeStatement_MaterialInventoryRecord">
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecords" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_PurchaseInvoice" Association="Self.FK_IncomeStatement_PurchaseInvoice">
+            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoices" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_PurchaseInvoice1" Association="Self.FK_IncomeStatement_PurchaseInvoice1">
+            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoices" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_PurchaseRequestPayment" Association="Self.FK_IncomeStatement_PurchaseRequestPayment">
+            <End Role="PurchaseRequestPayment" EntitySet="PurchaseRequestPayments" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_SalesIncomeRecord" Association="Self.FK_IncomeStatement_SalesIncomeRecord">
+            <End Role="SalesIncomeRecord" EntitySet="SalesIncomeRecords" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomeStatement_SalesInvoice" Association="Self.FK_IncomeStatement_SalesInvoice">
+            <End Role="SalesInvoice_" EntitySet="SalesInvoice_" />
+            <End Role="IncomeStatement" EntitySet="IncomeStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inquiry_Product" Association="Self.FK_Inquiry_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Inquiry" EntitySet="Inquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quotation_Inquiry" Association="Self.FK_Quotation_Inquiry">
+            <End Role="Inquiry" EntitySet="Inquiries" />
+            <End Role="Quotation" EntitySet="Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryReceipt_ProductionOrder" Association="Self.FK_InventoryReceipt_ProductionOrder">
+            <End Role="ProductionOrder" EntitySet="ProductionOrders" />
+            <End Role="InventoryReceipt" EntitySet="InventoryReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_InventoryRecord" Association="Self.FK_InventoryRecord_InventoryRecord">
+            <End Role="InventoryReceipt" EntitySet="InventoryReceipts" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_Product" Association="Self.FK_InventoryRecord_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_Product1" Association="Self.FK_InventoryRecord_Product1">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_ProductionOrder" Association="Self.FK_InventoryRecord_ProductionOrder">
+            <End Role="PackingList" EntitySet="PackingLists" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryRecord_ProductionOrder1" Association="Self.FK_InventoryRecord_ProductionOrder1">
+            <End Role="PackingList" EntitySet="PackingLists" />
+            <End Role="InventoryRecord" EntitySet="InventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_ProductionOrder" Association="Self.FK_MaterialInventoryRecord_ProductionOrder">
+            <End Role="ProductionOrder" EntitySet="ProductionOrders" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_StorageVoucher" Association="Self.FK_MaterialInventoryRecord_StorageVoucher">
+            <End Role="StorageVoucher" EntitySet="StorageVouchers" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_Suppliers" Association="Self.FK_MaterialInventoryRecord_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialInventoryRecord_Suppliers1" Association="Self.FK_MaterialInventoryRecord_Suppliers1">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="MaterialInventoryRecord" EntitySet="MaterialInventoryRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PackingList_SalesOrder" Association="Self.FK_PackingList_SalesOrder">
+            <End Role="SalesOrder" EntitySet="SalesOrders" />
+            <End Role="PackingList" EntitySet="PackingLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesCharts_PackingList" Association="Self.FK_SalesCharts_PackingList">
+            <End Role="PackingList" EntitySet="PackingLists" />
+            <End Role="SalesCharts" EntitySet="SalesCharts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRequestPaymentRecord_PackingList" Association="Self.FK_SalesRequestPaymentRecord_PackingList">
+            <End Role="PackingList" EntitySet="PackingLists" />
+            <End Role="SalesRequestPaymentRecord" EntitySet="SalesRequestPaymentRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesReturns_PackingList" Association="Self.FK_SalesReturns_PackingList">
+            <End Role="PackingList" EntitySet="PackingLists" />
+            <End Role="SalesReturns" EntitySet="SalesReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_PurchaseRequisition" Association="Self.FK_Purchase_PurchaseRequisition">
+            <End Role="PurchaseRequisition" EntitySet="PurchaseRequisitions" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Suppliers" Association="Self.FK_Purchase_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseInvoice_Purchase" Association="Self.FK_PurchaseInvoice_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseRequestPayment_Purchase" Association="Self.FK_PurchaseRequestPayment_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseRequestPayment" EntitySet="PurchaseRequestPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturns_Purchase" Association="Self.FK_PurchaseReturns_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseReturns" EntitySet="PurchaseReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StorageVoucher_Purchase" Association="Self.FK_StorageVoucher_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="StorageVoucher" EntitySet="StorageVouchers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrder_Quotation" Association="Self.FK_SalesOrder_Quotation">
+            <End Role="Quotation" EntitySet="Quotations" />
+            <End Role="SalesOrder" EntitySet="SalesOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesIncome_SalesRequestPayment" Association="Self.FK_SalesIncome_SalesRequestPayment">
+            <End Role="SalesRequestPayment" EntitySet="SalesRequestPayments" />
+            <End Role="SalesIncome" EntitySet="SalesIncomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesIncomeRecord_SalesIncome" Association="Self.FK_SalesIncomeRecord_SalesIncome">
+            <End Role="SalesIncome" EntitySet="SalesIncomes" />
+            <End Role="SalesIncomeRecord" EntitySet="SalesIncomeRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesInvoice__SalesRequestPayment" Association="Self.FK_SalesInvoice__SalesRequestPayment">
+            <End Role="SalesRequestPaymentRecord" EntitySet="SalesRequestPaymentRecords" />
+            <End Role="SalesInvoice_" EntitySet="SalesInvoice_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRequestPayment_SalesRequestPaymentRecord" Association="Self.FK_SalesRequestPayment_SalesRequestPaymentRecord">
+            <End Role="SalesRequestPaymentRecord" EntitySet="SalesRequestPaymentRecords" />
+            <End Role="SalesRequestPayment" EntitySet="SalesRequestPayments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KUASCYCModelStoreContainer" CdmEntityContainer="KUASCYCEntities">
+          <EntitySetMapping Name="BOMLists">
+            <EntityTypeMapping TypeName="KUASCYCModel.BOMList">
+              <MappingFragment StoreEntitySet="BOMList">
+                <ScalarProperty Name="BOMID" ColumnName="BOMID" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+                <ScalarProperty Name="MaterialQuantity" ColumnName="MaterialQuantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerProfiles">
+            <EntityTypeMapping TypeName="KUASCYCModel.CustomerProfile">
+              <MappingFragment StoreEntitySet="CustomerProfile">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ContactsPhone" ColumnName="ContactsPhone" />
+                <ScalarProperty Name="E_MAIL" ColumnName="E-MAIL" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ResponsiblePerson" ColumnName="ResponsiblePerson" />
+                <ScalarProperty Name="RemittanceAccount" ColumnName="RemittanceAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IncomeStatements">
+            <EntityTypeMapping TypeName="KUASCYCModel.IncomeStatement">
+              <MappingFragment StoreEntitySet="IncomeStatement">
+                <ScalarProperty Name="IncomeStatementID" ColumnName="IncomeStatementID" />
+                <ScalarProperty Name="AnnualStatistics" ColumnName="AnnualStatistics" />
+                <ScalarProperty Name="PreTaxIncome" ColumnName="PreTaxIncome" />
+                <ScalarProperty Name="NetIncome" ColumnName="NetIncome" />
+                <ScalarProperty Name="AccountingDepartmentEmployee" ColumnName="AccountingDepartmentEmployee" />
+                <ScalarProperty Name="SalesIncomeRecordID" ColumnName="SalesIncomeRecordID" />
+                <ScalarProperty Name="PurchaseRequestPaymentID" ColumnName="PurchaseRequestPaymentID" />
+                <ScalarProperty Name="PurchaseInvoiceID" ColumnName="PurchaseInvoiceID" />
+                <ScalarProperty Name="SalesInvoiceID" ColumnName="SalesInvoiceID" />
+                <ScalarProperty Name="InventoryRecordID" ColumnName="InventoryRecordID" />
+                <ScalarProperty Name="MaterialInventoryRecordID" ColumnName="MaterialInventoryRecordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inquiries">
+            <EntityTypeMapping TypeName="KUASCYCModel.Inquiry">
+              <MappingFragment StoreEntitySet="Inquiry">
+                <ScalarProperty Name="InquiryID" ColumnName="InquiryID" />
+                <ScalarProperty Name="InquiryName" ColumnName="InquiryName" />
+                <ScalarProperty Name="InquiryDate" ColumnName="InquiryDate" />
+                <ScalarProperty Name="ContactsPhone" ColumnName="ContactsPhone" />
+                <ScalarProperty Name="E_MAIL" ColumnName="E-MAIL" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InventoryReceipts">
+            <EntityTypeMapping TypeName="KUASCYCModel.InventoryReceipt">
+              <MappingFragment StoreEntitySet="InventoryReceipt">
+                <ScalarProperty Name="InventoryReceiptID" ColumnName="InventoryReceiptID" />
+                <ScalarProperty Name="ProductionInChargeOfName" ColumnName="ProductionInChargeOfName" />
+                <ScalarProperty Name="WarehouseResponsibleName" ColumnName="WarehouseResponsibleName" />
+                <ScalarProperty Name="InventoryDate" ColumnName="InventoryDate" />
+                <ScalarProperty Name="ProductionOrderID" ColumnName="ProductionOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InventoryRecords">
+            <EntityTypeMapping TypeName="KUASCYCModel.InventoryRecord">
+              <MappingFragment StoreEntitySet="InventoryRecord">
+                <ScalarProperty Name="InventoryRecordID" ColumnName="InventoryRecordID" />
+                <ScalarProperty Name="ProductStocks" ColumnName="ProductStocks" />
+                <ScalarProperty Name="SafetyStock" ColumnName="SafetyStock" />
+                <ScalarProperty Name="LastRecordedDate" ColumnName="LastRecordedDate" />
+                <ScalarProperty Name="WarehouseRecordName" ColumnName="WarehouseRecordName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="InventorySingle" ColumnName="InventorySingle" />
+                <ScalarProperty Name="ShipperID" ColumnName="ShipperID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialInventoryRecords">
+            <EntityTypeMapping TypeName="KUASCYCModel.MaterialInventoryRecord">
+              <MappingFragment StoreEntitySet="MaterialInventoryRecord">
+                <ScalarProperty Name="MaterialInventoryRecordID" ColumnName="MaterialInventoryRecordID" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+                <ScalarProperty Name="MaterialSpecifications" ColumnName="MaterialSpecifications" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+                <ScalarProperty Name="SafetyStock" ColumnName="SafetyStock" />
+                <ScalarProperty Name="LastRecordedDate" ColumnName="LastRecordedDate" />
+                <ScalarProperty Name="CangguanLastRecordName" ColumnName="CangguanLastRecordName" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="ReceiptID" ColumnName="ReceiptID" />
+                <ScalarProperty Name="ProductionOrderID" ColumnName="ProductionOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PackingLists">
+            <EntityTypeMapping TypeName="KUASCYCModel.PackingList">
+              <MappingFragment StoreEntitySet="PackingList">
+                <ScalarProperty Name="PackingListID" ColumnName="PackingListID" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="Deliveryman" ColumnName="Deliveryman" />
+                <ScalarProperty Name="WarehouseStaff" ColumnName="WarehouseStaff" />
+                <ScalarProperty Name="BusinessProcessEmployee" ColumnName="BusinessProcessEmployee" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="KUASCYCModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductSpecifications" ColumnName="ProductSpecifications" />
+                <ScalarProperty Name="ProductUnit" ColumnName="ProductUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductionOrders">
+            <EntityTypeMapping TypeName="KUASCYCModel.ProductionOrder">
+              <MappingFragment StoreEntitySet="ProductionOrder">
+                <ScalarProperty Name="ProductionOrderID" ColumnName="ProductionOrderID" />
+                <ScalarProperty Name="StartProductionDate" ColumnName="StartProductionDate" />
+                <ScalarProperty Name="Closingdate" ColumnName="Closingdate" />
+                <ScalarProperty Name="ProductionProductName" ColumnName="ProductionProductName" />
+                <ScalarProperty Name="ProductionProductSpecifications" ColumnName="ProductionProductSpecifications" />
+                <ScalarProperty Name="QuantityProduction" ColumnName="QuantityProduction" />
+                <ScalarProperty Name="TotalQuantityProduction" ColumnName="TotalQuantityProduction" />
+                <ScalarProperty Name="CangguanApplyEmployee" ColumnName="CangguanApplyEmployee" />
+                <ScalarProperty Name="ProductionProcessingEmployee" ColumnName="ProductionProcessingEmployee" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BOMID" ColumnName="BOMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="KUASCYCModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="LimitedReceiptDate" ColumnName="LimitedReceiptDate" />
+                <ScalarProperty Name="PurchaseAmount" ColumnName="PurchaseAmount" />
+                <ScalarProperty Name="TotalPurchaseAmount" ColumnName="TotalPurchaseAmount" />
+                <ScalarProperty Name="ReceiptLocation" ColumnName="ReceiptLocation" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PurchasingDepartmentEmployee" ColumnName="PurchasingDepartmentEmployee" />
+                <ScalarProperty Name="SupplierEmployee" ColumnName="SupplierEmployee" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="PurchaseRequisitionID" ColumnName="PurchaseRequisitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseInvoices">
+            <EntityTypeMapping TypeName="KUASCYCModel.PurchaseInvoice">
+              <MappingFragment StoreEntitySet="PurchaseInvoice">
+                <ScalarProperty Name="PurchaseInvoiceID" ColumnName="PurchaseInvoiceID" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="VATcharges" ColumnName="VATcharges" />
+                <ScalarProperty Name="PurchasingDepartmentEmployee" ColumnName="PurchasingDepartmentEmployee" />
+                <ScalarProperty Name="AccountingDepartmentEmployee" ColumnName="AccountingDepartmentEmployee" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseRequestPayments">
+            <EntityTypeMapping TypeName="KUASCYCModel.PurchaseRequestPayment">
+              <MappingFragment StoreEntitySet="PurchaseRequestPayment">
+                <ScalarProperty Name="PurchaseRequestPaymentID" ColumnName="PurchaseRequestPaymentID" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="ImportAccount" ColumnName="ImportAccount" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PurchasingDepartmentEmployee" ColumnName="PurchasingDepartmentEmployee" />
+                <ScalarProperty Name="AccountingDepartmentEmployee" ColumnName="AccountingDepartmentEmployee" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseRequisitions">
+            <EntityTypeMapping TypeName="KUASCYCModel.PurchaseRequisition">
+              <MappingFragment StoreEntitySet="PurchaseRequisition">
+                <ScalarProperty Name="PurchaseRequisitionID" ColumnName="PurchaseRequisitionID" />
+                <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+                <ScalarProperty Name="PurchaseQuantity" ColumnName="PurchaseQuantity" />
+                <ScalarProperty Name="TotalPurchaseQuantity" ColumnName="TotalPurchaseQuantity" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CangguanEmployee" ColumnName="CangguanEmployee" />
+                <ScalarProperty Name="PurchasingDepartmentEmployee" ColumnName="PurchasingDepartmentEmployee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseReturns">
+            <EntityTypeMapping TypeName="KUASCYCModel.PurchaseReturn">
+              <MappingFragment StoreEntitySet="PurchaseReturns">
+                <ScalarProperty Name="PurchaseReturnsID" ColumnName="PurchaseReturnsID" />
+                <ScalarProperty Name="PurchaseReturnsDate" ColumnName="PurchaseReturnsDate" />
+                <ScalarProperty Name="PurchaseReturnsQuantity" ColumnName="PurchaseReturnsQuantity" />
+                <ScalarProperty Name="PurchaseReturnsTotalQuantity" ColumnName="PurchaseReturnsTotalQuantity" />
+                <ScalarProperty Name="PurchaseReturnsReason" ColumnName="PurchaseReturnsReason" />
+                <ScalarProperty Name="ReplenishmentLimitedDate" ColumnName="ReplenishmentLimitedDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quotations">
+            <EntityTypeMapping TypeName="KUASCYCModel.Quotation">
+              <MappingFragment StoreEntitySet="Quotation">
+                <ScalarProperty Name="QuotationID" ColumnName="QuotationID" />
+                <ScalarProperty Name="BusinessOrdersEmployee" ColumnName="BusinessOrdersEmployee" />
+                <ScalarProperty Name="QuoteDate" ColumnName="QuoteDate" />
+                <ScalarProperty Name="OfferAmount" ColumnName="OfferAmount" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="InquiryID" ColumnName="InquiryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesCharts">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesChart">
+              <MappingFragment StoreEntitySet="SalesCharts">
+                <ScalarProperty Name="SalesChartsID" ColumnName="SalesChartsID" />
+                <ScalarProperty Name="AnnualRanking" ColumnName="AnnualRanking" />
+                <ScalarProperty Name="TopRanking" ColumnName="TopRanking" />
+                <ScalarProperty Name="LessPopularRanking" ColumnName="LessPopularRanking" />
+                <ScalarProperty Name="TopRankingName" ColumnName="TopRankingName" />
+                <ScalarProperty Name="LessPopularRankingName" ColumnName="LessPopularRankingName" />
+                <ScalarProperty Name="TopProductSpecifications" ColumnName="TopProductSpecifications" />
+                <ScalarProperty Name="Less_popular_Product_Specifications" ColumnName="Less popular Product Specifications" />
+                <ScalarProperty Name="PackingListID" ColumnName="PackingListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesIncomes">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesIncome">
+              <MappingFragment StoreEntitySet="SalesIncome">
+                <ScalarProperty Name="SalesIncomeID" ColumnName="SalesIncomeID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Payer" ColumnName="Payer" />
+                <ScalarProperty Name="AccountingDepartmentEmployee" ColumnName="AccountingDepartmentEmployee" />
+                <ScalarProperty Name="SalesRequestPaymentID" ColumnName="SalesRequestPaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesIncomeRecords">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesIncomeRecord">
+              <MappingFragment StoreEntitySet="SalesIncomeRecord">
+                <ScalarProperty Name="SalesIncomeRecordID" ColumnName="SalesIncomeRecordID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AccountingDepartmentEmployee" ColumnName="AccountingDepartmentEmployee" />
+                <ScalarProperty Name="SalesIncomeID" ColumnName="SalesIncomeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesInvoice_">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesInvoice_">
+              <MappingFragment StoreEntitySet="SalesInvoice ">
+                <ScalarProperty Name="SalesInvoiceID" ColumnName="SalesInvoiceID" />
+                <ScalarProperty Name="UniformID" ColumnName="UniformID" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="OutputTaxCharges" ColumnName="OutputTaxCharges" />
+                <ScalarProperty Name="AccountingDepartmentHandleEmployee" ColumnName="AccountingDepartmentHandleEmployee" />
+                <ScalarProperty Name="PayName" ColumnName="PayName" />
+                <ScalarProperty Name="SalesRequestPaymentID" ColumnName="SalesRequestPaymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrders">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesOrder">
+              <MappingFragment StoreEntitySet="SalesOrder">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="RecipientPlace" ColumnName="RecipientPlace" />
+                <ScalarProperty Name="RecipientsPhone" ColumnName="RecipientsPhone" />
+                <ScalarProperty Name="ExpectedReceiptDate" ColumnName="ExpectedReceiptDate" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
+                <ScalarProperty Name="PurchaseAmount" ColumnName="PurchaseAmount" />
+                <ScalarProperty Name="TotalOrderAmount" ColumnName="TotalOrderAmount" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BusinessProcessEmployee" ColumnName="BusinessProcessEmployee" />
+                <ScalarProperty Name="WarehouseDealingEmployee" ColumnName="WarehouseDealingEmployee" />
+                <ScalarProperty Name="QuotationID" ColumnName="QuotationID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesRequestPayments">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesRequestPayment">
+              <MappingFragment StoreEntitySet="SalesRequestPayment">
+                <ScalarProperty Name="SalesRequestPaymentID" ColumnName="SalesRequestPaymentID" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="ExportAccount" ColumnName="ExportAccount" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="AccountingStaff" ColumnName="AccountingStaff" />
+                <ScalarProperty Name="Payer" ColumnName="Payer" />
+                <ScalarProperty Name="SalesRequestPaymentRecordID" ColumnName="SalesRequestPaymentRecordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesRequestPaymentRecords">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesRequestPaymentRecord">
+              <MappingFragment StoreEntitySet="SalesRequestPaymentRecord">
+                <ScalarProperty Name="SalesRequestPaymentRecordID" ColumnName="SalesRequestPaymentRecordID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AccountingDepartmentEmployee" ColumnName="AccountingDepartmentEmployee" />
+                <ScalarProperty Name="PackingListID" ColumnName="PackingListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesReturns">
+            <EntityTypeMapping TypeName="KUASCYCModel.SalesReturn">
+              <MappingFragment StoreEntitySet="SalesReturns">
+                <ScalarProperty Name="SalesReturnsID" ColumnName="SalesReturnsID" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="ReturnsNames" ColumnName="ReturnsNames" />
+                <ScalarProperty Name="ReturnPersonPhone" ColumnName="ReturnPersonPhone" />
+                <ScalarProperty Name="ReturnReason" ColumnName="ReturnReason" />
+                <ScalarProperty Name="ReturnQty" ColumnName="ReturnQty" />
+                <ScalarProperty Name="ReturnTotalQty" ColumnName="ReturnTotalQty" />
+                <ScalarProperty Name="ReturnMoney" ColumnName="ReturnMoney" />
+                <ScalarProperty Name="ReturnsTotalAmount" ColumnName="ReturnsTotalAmount" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BusinessProcessEmployee" ColumnName="BusinessProcessEmployee" />
+                <ScalarProperty Name="PackingListID" ColumnName="PackingListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageVouchers">
+            <EntityTypeMapping TypeName="KUASCYCModel.StorageVoucher">
+              <MappingFragment StoreEntitySet="StorageVoucher">
+                <ScalarProperty Name="StorageVoucherID" ColumnName="StorageVoucherID" />
+                <ScalarProperty Name="WarehouseStaff" ColumnName="WarehouseStaff" />
+                <ScalarProperty Name="Purchase" ColumnName="Purchase" />
+                <ScalarProperty Name="StorageDate" ColumnName="StorageDate" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="KUASCYCModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierPhone" ColumnName="SupplierPhone" />
+                <ScalarProperty Name="SupplierEmail" ColumnName="SupplierEmail" />
+                <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
+                <ScalarProperty Name="ResponsiblePerson" ColumnName="ResponsiblePerson" />
+                <ScalarProperty Name="SupplyRawMaterial" ColumnName="SupplyRawMaterial" />
+                <ScalarProperty Name="RawMaterialPrice" ColumnName="RawMaterialPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="KUASCYCModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UsreName" ColumnName="UsreName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="OfficialRank" ColumnName="OfficialRank" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="Islogin" ColumnName="Islogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

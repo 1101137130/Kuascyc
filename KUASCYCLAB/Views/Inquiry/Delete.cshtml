@@ -1,0 +1,88 @@
+﻿@model KUASCYCLAB.Models.Inquiry
+
+@{
+    ViewBag.Title = "詢價單";
+}
+
+<h2>詢價單</h2>
+
+<h3>請問您是否真的要刪除?</h3>
+<div>
+    <h4>刪除</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InquiryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InquiryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InquiryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InquiryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactsPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactsPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_MAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_MAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="確認刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>

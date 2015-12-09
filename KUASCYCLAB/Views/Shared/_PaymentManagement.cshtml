@@ -1,0 +1,18 @@
+﻿@if (Request.IsAuthenticated)
+{
+   <a href="#"  data-toggle="dropdown" class="dropdown-toggle" id="dropdown">請款及入帳管理 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("銷項發票管理", "Index", "SalesInvoice")</li>
+            <li>@Html.ActionLink("銷貨請款紀錄管理", "Index", "SalesRequestPaymentRecord")</li>
+            <li>@Html.ActionLink("銷售請款單管理", "Index", "SalesRequestPayment")</li>
+            <li>@Html.ActionLink("銷貨入款單管理", "Index", "SalesIncome")</li>
+            <li>@Html.ActionLink("銷貨入款紀錄管理", "Index", "SalesIncomeRecord")</li>
+            <li>@Html.ActionLink("進項發票管理", "Index", "PurchaseInvoice")</li>
+            <li>@Html.ActionLink("進貨請款單管理", "Index", "PurchaseRequestPayment")</li>
+        </ul>
+
+}
+else
+{
+
+}

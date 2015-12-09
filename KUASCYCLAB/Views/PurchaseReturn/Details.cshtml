@@ -1,0 +1,74 @@
+﻿@model KUASCYCLAB.Models.PurchaseReturn
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>進貨退出管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseReturnsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseReturnsQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsTotalQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseReturnsTotalQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseReturnsReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReplenishmentLimitedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReplenishmentLimitedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase.PurchaseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase.PurchaseAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.PurchaseReturnsID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

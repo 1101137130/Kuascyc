@@ -1,0 +1,57 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.SalesRequestPaymentRecord>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackingList.Deliveryman)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountingDepartmentEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PackingList.Deliveryman)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.SalesRequestPaymentRecordID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.SalesRequestPaymentRecordID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.SalesRequestPaymentRecordID })
+        </td>
+    </tr>
+}
+
+</table>

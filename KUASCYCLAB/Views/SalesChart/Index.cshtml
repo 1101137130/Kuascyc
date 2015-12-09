@@ -1,0 +1,75 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.SalesChart>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AnnualRanking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TopRanking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LessPopularRanking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TopRankingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LessPopularRankingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TopProductSpecifications)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Less_popular_Product_Specifications)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackingList.Deliveryman)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnnualRanking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopRanking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LessPopularRanking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopRankingName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LessPopularRankingName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopProductSpecifications)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Less_popular_Product_Specifications)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PackingList.Deliveryman)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.SalesChartsID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.SalesChartsID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.SalesChartsID })
+        </td>
+    </tr>
+}
+
+</table>

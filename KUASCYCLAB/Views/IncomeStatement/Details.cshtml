@@ -1,0 +1,98 @@
+﻿@model KUASCYCLAB.Models.IncomeStatement
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>損益表管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualStatistics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnnualStatistics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreTaxIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreTaxIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountingDepartmentEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InventoryRecord.ProductStocks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InventoryRecord.ProductStocks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialInventoryRecord.MaterialName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialInventoryRecord.MaterialName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseInvoice.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseInvoice.InvoiceNumber)
+        </dd>
+  
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseRequestPayment.ImportAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseRequestPayment.ImportAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesIncomeRecord.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesIncomeRecord.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesInvoice_.UniformID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesInvoice_.UniformID )
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.IncomeStatementID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

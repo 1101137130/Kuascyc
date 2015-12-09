@@ -1,0 +1,82 @@
+﻿@model KUASCYCLAB.Models.Inquiry
+
+@{
+    ViewBag.Title = "詢價單";
+}
+
+<h2>詢價單</h2>
+
+<div>
+    <h4>明細</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InquiryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InquiryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InquiryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InquiryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactsPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactsPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_MAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_MAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.InquiryID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

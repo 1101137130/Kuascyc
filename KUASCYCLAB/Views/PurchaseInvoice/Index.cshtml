@@ -1,0 +1,63 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.PurchaseInvoice>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VATcharges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchasingDepartmentEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Purchase.PurchaseAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VATcharges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchasingDepartmentEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountingDepartmentEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purchase.PurchaseAmount)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.PurchaseInvoiceID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.PurchaseInvoiceID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.PurchaseInvoiceID })
+        </td>
+    </tr>
+}
+
+</table>

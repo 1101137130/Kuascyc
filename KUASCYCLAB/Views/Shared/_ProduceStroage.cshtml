@@ -1,0 +1,15 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle"> 生產及入庫管理 <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("生產管理", "Index", "ProductionOrder")</li>
+        <li>@Html.ActionLink("BOM表管理", "Index", "BOMList")</li>
+        <li>@Html.ActionLink("原料存貨紀錄管理", "Index", "MaterialInventoryRecord")</li>
+        <li>@Html.ActionLink("盤點管理", "Index", "InventoryReceipt")</li>
+        <li>@Html.ActionLink("入庫管理", "Index", "StorageVoucher")</li>
+     </ul>
+}
+else
+{
+
+}

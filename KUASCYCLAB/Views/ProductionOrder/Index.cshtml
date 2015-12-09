@@ -1,0 +1,87 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.ProductionOrder>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StartProductionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Closingdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionProductSpecifications)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityProduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalQuantityProduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CangguanApplyEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionProcessingEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BOMList.MaterialName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartProductionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Closingdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionProductSpecifications)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantityProduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalQuantityProduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CangguanApplyEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionProcessingEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BOMList.MaterialName)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.ProductionOrderID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.ProductionOrderID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.ProductionOrderID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,72 @@
+﻿@model KUASCYCLAB.Models.SalesInvoice_
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>SalesInvoice_</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UniformID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniformID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutputTaxCharges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutputTaxCharges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingDepartmentHandleEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountingDepartmentHandleEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesRequestPaymentRecord.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesRequestPaymentRecord.Status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>

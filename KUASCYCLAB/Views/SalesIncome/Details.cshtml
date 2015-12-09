@@ -1,0 +1,58 @@
+﻿@model KUASCYCLAB.Models.SalesIncome
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>銷貨入款單管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingDepartmentEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountingDepartmentEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesRequestPayment.ExportAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesRequestPayment.ExportAccount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.SalesIncomeID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model KUASCYCLAB.Models.Product
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductSpecifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductSpecifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductUnit)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

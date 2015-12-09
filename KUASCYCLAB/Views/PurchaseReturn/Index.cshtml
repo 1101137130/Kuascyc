@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.PurchaseReturn>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsTotalQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseReturnsReason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplenishmentLimitedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Purchase.PurchaseAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseReturnsDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseReturnsQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseReturnsTotalQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseReturnsReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplenishmentLimitedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Purchase.PurchaseAmount)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.PurchaseReturnsID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.PurchaseReturnsID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.PurchaseReturnsID })
+        </td>
+    </tr>
+}
+
+</table>

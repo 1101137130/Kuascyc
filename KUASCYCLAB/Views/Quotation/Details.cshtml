@@ -1,0 +1,58 @@
+﻿@model KUASCYCLAB.Models.Quotation
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>報價單管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessOrdersEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessOrdersEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuoteDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuoteDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inquiry.InquiryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inquiry.InquiryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.QuotationID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

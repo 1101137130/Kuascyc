@@ -1,0 +1,42 @@
+﻿@model KUASCYCLAB.Models.BOMList
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>BOM表管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.BOMID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

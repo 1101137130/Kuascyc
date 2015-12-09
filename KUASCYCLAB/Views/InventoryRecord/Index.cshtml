@@ -1,0 +1,81 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.InventoryRecord>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductStocks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SafetyStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastRecordedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseRecordName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InventoryReceipt.ProductionInChargeOfName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product1.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackingList.Deliveryman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackingList1.Deliveryman)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductStocks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SafetyStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastRecordedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseRecordName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InventoryReceipt.ProductionInChargeOfName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product1.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PackingList.Deliveryman)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PackingList1.Deliveryman)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.InventoryRecordID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.InventoryRecordID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.InventoryRecordID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.Supplier>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResponsiblePerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplyRawMaterial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RawMaterialPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResponsiblePerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplyRawMaterial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RawMaterialPrice)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.SupplierID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.SupplierID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.SupplierID })
+        </td>
+    </tr>
+}
+
+</table>

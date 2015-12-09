@@ -1,0 +1,14 @@
+﻿@if (Request.IsAuthenticated)
+{
+       <a href="#" data-toggle="dropdown" class="dropdown-toggle">進貨管理 <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("進貨單管理", "Index", "Purchase")</li>
+        <li>@Html.ActionLink("進貨退出管理", "Index", "PurchaseReturn")</li>
+        <li>@Html.ActionLink("供應商資料管理", "Index", "Supplier")</li>
+        <li>@Html.ActionLink("進貨申請管理", "Index", "PurchaseRequisition")</li>
+    </ul>
+}
+else
+{
+
+}

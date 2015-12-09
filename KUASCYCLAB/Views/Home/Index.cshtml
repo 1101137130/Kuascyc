@@ -1,0 +1,30 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>最新資訊</h1>
+    <p class="lead">最新商品供應</p>
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>燕巢牌水晶水</h2>
+        <p>
+           獨一無二的特別工法，使水有了新的生命，特別添加天然水晶礦物質不僅能養顏美容，還能返老孩童，若每天飲用將會有無法想像的驚豔效果。
+        </p>
+        @Html.ActionLink("嘗嘗看", "Index", "Products")
+    </div>
+    <div class="col-md-4">
+        <h2>燕巢牌活純淨水</h2>
+        <p>水是人們不可或缺的最重要元素，但是你喝的水真的健康嗎? 好的水讓你上天堂，差的水就頻頻讓你找醫生，試試我們全新研發的終極純淨水吧!</p>
+        @Html.ActionLink("心動不如馬上行動 GO", "Index", "Products")
+    </div>
+    <div class="col-md-4">
+        <h2>燕巢牌芭樂汁</h2>
+        <p>使用本燕巢研製而成的燕巢牌活純淨水來灌溉，每一顆芭樂都是精華所在，全天下最營養的芭樂，吃了可以增年益壽，百毒不侵，珍貴如黃金!</p>
+        @Html.ActionLink("這麼好的東西你還在等甚麼?", "Index", "Products")
+    </div>
+</div>

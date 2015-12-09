@@ -1,0 +1,50 @@
+﻿@model KUASCYCLAB.Models.StorageVoucher
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>StorageVoucher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseStaff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseStaff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StorageDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StorageDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase1.PurchaseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase1.PurchaseAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.StorageVoucherID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="290a8e5632814524872b14cdf133d174" Name="Diagram1">
+        <EntityTypeShape EntityType="KUASCYCModel.BOMList" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.CustomerProfile" Width="1.5" PointX="5.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.IncomeStatement" Width="1.5" PointX="21" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.Inquiry" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.InventoryReceipt" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.InventoryRecord" Width="1.5" PointX="9.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.MaterialInventoryRecord" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.PackingList" Width="1.5" PointX="9.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.Product" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.ProductionOrder" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.Purchase" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.PurchaseInvoice" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.PurchaseRequestPayment" Width="1.5" PointX="18.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.PurchaseRequisition" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.PurchaseReturn" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.Quotation" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesChart" Width="1.5" PointX="12" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesIncome" Width="1.5" PointX="16.5" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesIncomeRecord" Width="1.5" PointX="18.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesInvoice_" Width="1.5" PointX="14.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesOrder" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesRequestPayment" Width="1.5" PointX="14.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesRequestPaymentRecord" Width="1.5" PointX="12" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.SalesReturn" Width="1.5" PointX="12" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.StorageVoucher" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.Supplier" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KUASCYCModel.Account" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="KUASCYCModel.FK_BOMList_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_ProductionOrder_BOMList" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesOrder_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_IncomeStatement_InventoryRecord" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_IncomeStatement_MaterialInventoryRecord" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_IncomeStatement_PurchaseInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_IncomeStatement_PurchaseInvoice1" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_IncomeStatement_PurchaseRequestPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_IncomeStatement_SalesIncomeRecord" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_IncomeStatement_SalesInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_Inquiry_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_Quotation_Inquiry" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_InventoryReceipt_ProductionOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_InventoryRecord_InventoryRecord" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_InventoryRecord_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_InventoryRecord_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_InventoryRecord_ProductionOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_InventoryRecord_ProductionOrder1" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_MaterialInventoryRecord_ProductionOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_MaterialInventoryRecord_StorageVoucher" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_MaterialInventoryRecord_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_MaterialInventoryRecord_Suppliers1" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_PackingList_SalesOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesCharts_PackingList" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesRequestPaymentRecord_PackingList" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesReturns_PackingList" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_Purchase_PurchaseRequisition" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_Purchase_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_PurchaseInvoice_Purchase" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_PurchaseRequestPayment_Purchase" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_PurchaseReturns_Purchase" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_StorageVoucher_Purchase" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesOrder_Quotation" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesIncome_SalesRequestPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesIncomeRecord_SalesIncome" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesInvoice__SalesRequestPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="KUASCYCModel.FK_SalesRequestPayment_SalesRequestPaymentRecord" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

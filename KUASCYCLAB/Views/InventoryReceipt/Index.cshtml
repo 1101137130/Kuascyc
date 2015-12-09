@@ -1,0 +1,51 @@
+﻿@model IEnumerable<KUASCYCLAB.Models.InventoryReceipt>
+
+@{
+    ViewBag.Title = "檢索";
+}
+
+<h2>檢索</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionInChargeOfName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseResponsibleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InventoryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionOrder.ProductionProductName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionInChargeOfName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseResponsibleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InventoryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionOrder.ProductionProductName)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id=item.InventoryReceiptID }) |
+            @Html.ActionLink("檢視", "Details", new { id=item.InventoryReceiptID }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.InventoryReceiptID })
+        </td>
+    </tr>
+}
+
+</table>

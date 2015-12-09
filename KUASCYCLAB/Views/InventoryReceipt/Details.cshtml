@@ -1,0 +1,50 @@
+﻿@model KUASCYCLAB.Models.InventoryReceipt
+
+@{
+    ViewBag.Title = "檢視";
+}
+
+<h2>檢視</h2>
+
+<div>
+    <h4>盤點管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionInChargeOfName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionInChargeOfName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseResponsibleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseResponsibleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InventoryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InventoryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionOrder.ProductionProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionOrder.ProductionProductName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.InventoryReceiptID }) |
+    @Html.ActionLink("回上一頁", "Index")
+</p>

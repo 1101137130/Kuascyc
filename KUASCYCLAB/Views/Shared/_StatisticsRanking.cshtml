@@ -1,0 +1,12 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">統計及排行管理 <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("損益表管理", "Index", "IncomeStatement")</li>
+        <li>@Html.ActionLink("銷貨排行榜管理", "Index", "SalesChart")</li>
+    </ul>
+}
+else
+{
+
+}

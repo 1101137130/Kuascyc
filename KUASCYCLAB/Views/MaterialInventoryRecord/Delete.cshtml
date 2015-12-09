@@ -1,0 +1,104 @@
+﻿@model KUASCYCLAB.Models.MaterialInventoryRecord
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>MaterialInventoryRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialSpecifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialSpecifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inventory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inventory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SafetyStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SafetyStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastRecordedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastRecordedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CangguanLastRecordName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CangguanLastRecordName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionOrder.ProductionProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductionOrder.ProductionProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StorageVoucher.WarehouseStaff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StorageVoucher.WarehouseStaff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.SupplierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier1.SupplierName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,88 @@
+﻿@model KUASCYCLAB.Models.SalesChart
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>銷貨排行榜管理</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualRanking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnnualRanking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopRanking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopRanking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LessPopularRanking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessPopularRanking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopRankingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopRankingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LessPopularRankingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessPopularRankingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopProductSpecifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopProductSpecifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Less_popular_Product_Specifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Less_popular_Product_Specifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PackingList.Deliveryman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PackingList.Deliveryman)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回上一頁", "Index")
+        </div>
+    }
+</div>
