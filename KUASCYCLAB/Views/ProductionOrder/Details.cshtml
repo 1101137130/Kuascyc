@@ -93,6 +93,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("編輯", "Edit", new { id = Model.ProductionOrderID }) |
+    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id =  Model.ProductionOrderID })'; return false;">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </button>
        <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Index")'; return false;"> <span class="glyphicon glyphicon-arrow-left"></span></button>
 </p>

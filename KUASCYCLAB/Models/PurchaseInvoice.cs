@@ -22,17 +22,23 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "進項發票編號")]
         public System.Guid PurchaseInvoiceID { get; set; }
+        [Required]
         [Display(Name = "統一編號")]
         public string InvoiceNumber { get; set; }
+        [Required]
         [Display(Name = "開票日期")]
         public System.DateTime InvoiceDate { get; set; }
+        [Required]
         [Display(Name = "進項稅費")]
         public string VATcharges { get; set; }
+        [Required]
         [Display(Name = "採購部申請員工姓名")]
         public string PurchasingDepartmentEmployee { get; set; }
+        [Required]
         [Display(Name = "會計部處理員工姓名")]
         public string AccountingDepartmentEmployee { get; set; }
-        [Display(Name = "進貨單")]
+        [Required]
+        [Display(Name = "進貨單備註*")]
         public System.Guid PurchaseID { get; set; }
 
         public virtual ICollection<IncomeStatement> IncomeStatements { get; set; }

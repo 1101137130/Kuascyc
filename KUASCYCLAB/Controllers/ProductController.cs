@@ -37,6 +37,7 @@ namespace KUASCYCLAB.Controllers
         }
 
         // GET: Product/Create
+    [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace KUASCYCLAB.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+    [Authorize]
         public async Task<ActionResult> Create([Bind(Include = "ProductID,ProductName,ProductSpecifications,ProductUnit")] Product product)
         {
             if (ModelState.IsValid)
@@ -61,6 +63,7 @@ namespace KUASCYCLAB.Controllers
         }
 
         // GET: Product/Edit/5
+    [Authorize]
         public async Task<ActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -80,6 +83,7 @@ namespace KUASCYCLAB.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+    [Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "ProductID,ProductName,ProductSpecifications,ProductUnit")] Product product)
         {
             if (ModelState.IsValid)
@@ -92,6 +96,7 @@ namespace KUASCYCLAB.Controllers
         }
 
         // GET: Product/Delete/5
+    [Authorize]
         public async Task<ActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -109,6 +114,7 @@ namespace KUASCYCLAB.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+    [Authorize]
         public async Task<ActionResult> DeleteConfirmed(Guid id)
         {
             Product product = await db.Products.FindAsync(id);

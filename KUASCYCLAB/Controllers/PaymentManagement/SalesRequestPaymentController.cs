@@ -11,6 +11,7 @@ using KUASCYCLAB.Models;
 
 namespace KUASCYCLAB.Controllers.PaymentManagement
 {
+    [Authorize]
     public class SalesRequestPaymentController : Controller
     {
         private KUASCYCEntities db = new KUASCYCEntities();

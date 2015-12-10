@@ -24,10 +24,13 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "商品編號")]
         public System.Guid ProductID { get; set; }
+        [Required]
         [Display(Name = "商品名稱")]
         public string ProductName { get; set; }
+        [Required]
         [Display(Name = "商品規格")]
         public string ProductSpecifications { get; set; }
+        [Required]
         [Display(Name = "商品單位")]
         public string ProductUnit { get; set; }
 

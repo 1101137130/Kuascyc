@@ -17,26 +17,36 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "銷貨退回編號")]
         public System.Guid SalesReturnsID { get; set; }
+        [Required]
         [Display(Name = "退貨日期")]
         public System.DateTime ReturnDate { get; set; }
+        [Required]
         [Display(Name = "退貨者姓名")]
         public string ReturnsNames { get; set; }
+        [Required]
         [Display(Name = "退貨者連絡電話")]
         public string ReturnPersonPhone { get; set; }
+        [Required]
         [Display(Name = "退貨原因")]
         public string ReturnReason { get; set; }
+        [Required]
         [Display(Name = "退貨數量")]
         public string ReturnQty { get; set; }
+        [Required]
         [Display(Name = "退貨總數量")]
         public string ReturnTotalQty { get; set; }
+        [Required]
         [Display(Name = "退貨金額")]
         public string ReturnMoney { get; set; }
+        [Required]
         [Display(Name = "退貨總金額")]
         public string ReturnsTotalAmount { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Required]
         [Display(Name = "業務部處理員工姓名")]
         public string BusinessProcessEmployee { get; set; }
+        [Required]
         [Display(Name = "出貨單")]
         public System.Guid PackingListID { get; set; }
 

@@ -21,17 +21,23 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "銷項發票編號")]
         public System.Guid SalesInvoiceID { get; set; }
+        [Required]
         [Display(Name = "統一編號")]
         public string UniformID { get; set; }
+        [Required]
         [Display(Name = "開票日期")]
         public System.DateTime InvoiceDate { get; set; }
+        [Required]
         [Display(Name = "銷項稅費")]
         public string OutputTaxCharges { get; set; }
+        [Required]
         [Display(Name = "會計部處理員工姓名")]
         public string AccountingDepartmentHandleEmployee { get; set; }
+        [Required]
         [Display(Name = "付款人姓名")]
         public string PayName { get; set; }
-        [Display(Name = "銷貨請款單編號")]
+        [Required]
+        [Display(Name = "銷貨請款單編號*備註")]
         public System.Guid SalesRequestPaymentID { get; set; }
 
         public virtual ICollection<IncomeStatement> IncomeStatements { get; set; }

@@ -21,19 +21,26 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "詢價單編號")]
         public System.Guid InquiryID { get; set; }
+        [Required]
         [Display(Name = "詢價者姓名")]
         public string InquiryName { get; set; }
+        [Required]
         [Display(Name = "詢價日期")]
         public System.DateTime InquiryDate { get; set; }
+        [Required]
         [Display(Name = "連絡電話")]
         public string ContactsPhone { get; set; }
+        [Required]
+        [Display(Name = "E-Mail")]
         public string E_MAIL { get; set; }
+        [Required]
         [Display(Name = "商品數量")]
         public string Qty { get; set; }
         [Display(Name = "商品總數量")]
         public string TotalQty { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Required]
         [Display(Name = "詢價商品")]
         public System.Guid ProductID { get; set; }
 

@@ -21,15 +21,22 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "客戶編號")]
         public System.Guid CustomerID { get; set; }
+        [Required]
         [Display(Name = "客戶名稱")]
         public string CustomerName { get; set; }
+        [Required]
         [Display(Name = "聯絡電話")]
         public string ContactsPhone { get; set; }
+        [Required]
+        [Display(Name = "E-Mail")]
         public string E_MAIL { get; set; }
+        [Required]
         [Display(Name = "住址")]
         public string Address { get; set; }
+        [Required]
         [Display(Name = "負責人姓名")]
         public string ResponsiblePerson { get; set; }
+        [Required]
         [Display(Name = "匯款帳號")]
         public string RemittanceAccount { get; set; }
 

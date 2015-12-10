@@ -25,16 +25,21 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "出貨單編號")]
         public System.Guid PackingListID { get; set; }
+        [Required]
         [Display(Name = "送貨日期")]
         public System.DateTime DeliveryDate { get; set; }
+        [Required]
         [Display(Name = "送貨員工姓名")]
         public string Deliveryman { get; set; }
+        [Required]
         [Display(Name = "倉管部處理員工姓名")]
         public string WarehouseStaff { get; set; }
+        [Required]
         [Display(Name = "業務部處理員工姓名")]
         public string BusinessProcessEmployee { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Required]
         [Display(Name = "訂單編號之銷售人員")]
         public System.Guid SalesOrderID { get; set; }
 

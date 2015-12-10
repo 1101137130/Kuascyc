@@ -21,12 +21,17 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "盤點單編號")]
         public System.Guid InventoryReceiptID { get; set; }
+        [Required]
         [Display(Name = "生產負責人姓名")]
         public string ProductionInChargeOfName { get; set; }
+        [Required]
         [Display(Name = "倉管負責人姓名")]
         public string WarehouseResponsibleName { get; set; }
+        [Required]
         [Display(Name = "盤點日")]
         public System.DateTime InventoryDate { get; set; }
+        [Required]
+        [Display(Name = "產品")]
         public System.Guid ProductionOrderID { get; set; }
 
         public virtual ProductionOrder ProductionOrder { get; set; }

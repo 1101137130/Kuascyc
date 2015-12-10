@@ -11,6 +11,7 @@ using KUASCYCLAB.Models;
 
 namespace KUASCYCLAB.Controllers.SalesManagement
 {
+    [Authorize]
     public class QuotationController : Controller
     {
         private KUASCYCEntities db = new KUASCYCEntities();

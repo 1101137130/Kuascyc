@@ -21,14 +21,19 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "銷貨入款單紀錄編號")]
         public System.Guid SalesIncomeRecordID { get; set; }
+        [Required]
         [Display(Name = "紀錄日期")]
         public System.DateTime Date { get; set; }
+        [Required]
         [Display(Name = "入款帳號")]
         public string AccountNumber { get; set; }
-        [Display(Name = "備註")]
+        [Required]
+        [Display(Name = "備註*")]
         public string Remark { get; set; }
+        [Required]
         [Display(Name = "會計部紀錄員工姓名")]
         public string AccountingDepartmentEmployee { get; set; }
+        [Required]
         [Display(Name = "銷貨入款單編號")]
         public System.Guid SalesIncomeID { get; set; }
 

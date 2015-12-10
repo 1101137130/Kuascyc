@@ -22,23 +22,33 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "生產單編號")]
         public System.Guid ProductionOrderID { get; set; }
+        [Required]
         [Display(Name = "開始生產日期")]
         public System.DateTime StartProductionDate { get; set; }
+        [Required]
         [Display(Name = "結束期限")]
         public System.DateTime Closingdate { get; set; }
+        [Required]
         [Display(Name = "生產商品名稱")]
         public string ProductionProductName { get; set; }
+        [Required]
         [Display(Name = "生產商品規格")]
         public string ProductionProductSpecifications { get; set; }
+        [Required]
         [Display(Name = "生產數量")]
         public string QuantityProduction { get; set; }
+        [Required]
         [Display(Name = "生產總數量")]
         public string TotalQuantityProduction { get; set; }
+        [Required]
         [Display(Name = "倉管部申請員工姓名")]
         public string CangguanApplyEmployee { get; set; }
+        [Required]
         [Display(Name = "生產部處理員工姓名")]
         public string ProductionProcessingEmployee { get; set; }
+        [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Required]
         public System.Guid BOMID { get; set; }
 
         public virtual BOMList BOMList { get; set; }

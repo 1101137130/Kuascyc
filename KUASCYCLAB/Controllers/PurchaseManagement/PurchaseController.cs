@@ -11,6 +11,7 @@ using KUASCYCLAB.Models;
 
 namespace KUASCYCLAB.Controllers.PurchaseManagement
 {
+    [Authorize]
     public class PurchaseController : Controller
     {
         private KUASCYCEntities db = new KUASCYCEntities();

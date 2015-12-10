@@ -11,6 +11,7 @@ using KUASCYCLAB.Models;
 
 namespace KUASCYCLAB.Controllers.SalesManagement
 {
+    [Authorize]
     public class PackingListController : Controller
     {
         private KUASCYCEntities db = new KUASCYCEntities();
