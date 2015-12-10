@@ -11,6 +11,7 @@ using KUASCYCLAB.Models;
 
 namespace KUASCYCLAB.Controllers.ProduceStroage
 {
+    [Authorize]
     public class BOMListController : Controller
     {
         private KUASCYCEntities db = new KUASCYCEntities();

@@ -17,19 +17,35 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "損益表編號")]
         public System.Guid IncomeStatementID { get; set; }
+        [Required]
         [Display(Name = "統計年度")]
         public string AnnualStatistics { get; set; }
+        [Required]
         [Display(Name = "稅前淨利")]
         public string PreTaxIncome { get; set; }
+        [Required]
         [Display(Name = "稅後淨利")]
         public string NetIncome { get; set; }
+        [Required]
         [Display(Name = "會計負責人姓名")]
         public string AccountingDepartmentEmployee { get; set; }
+        [Required]
+        [Display(Name = "銷貨入款單紀錄編號")]
         public System.Guid SalesIncomeRecordID { get; set; }
+        [Required]
+        [Display(Name = "進貨請款單編號")]
         public System.Guid PurchaseRequestPaymentID { get; set; }
+        [Required]
+        [Display(Name = "進項發票編號")]
         public System.Guid PurchaseInvoiceID { get; set; }
+        [Required]
+        [Display(Name = "銷項發票編號")]
         public System.Guid SalesInvoiceID { get; set; }
+        [Required]
+        [Display(Name = "商品存貨紀錄編號")]
         public System.Guid InventoryRecordID { get; set; }
+        [Required]
+        [Display(Name = "原料存貨紀錄編號")]
         public System.Guid MaterialInventoryRecordID { get; set; }
 
         public virtual InventoryRecord InventoryRecord { get; set; }

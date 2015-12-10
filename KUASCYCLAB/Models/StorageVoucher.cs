@@ -21,12 +21,16 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "入庫單編號")]
         public System.Guid StorageVoucherID { get; set; }
+        [Required]
         [Display(Name = "倉管部負責人姓名")]
         public string WarehouseStaff { get; set; }
+        [Required]
         [Display(Name = "採購部負責人姓名")]
         public string Purchase { get; set; }
         [Display(Name = "入庫日期")]
+        [Required]
         public System.DateTime StorageDate { get; set; }
+        [Required]
         [Display(Name = "進貨單編號")]
         public System.Guid PurchaseID { get; set; }
 

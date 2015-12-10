@@ -21,18 +21,25 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "進貨請款單編號")]
         public System.Guid PurchaseRequestPaymentID { get; set; }
+        [Required]
         [Display(Name = "請款日期")]
         public System.DateTime RequestDate { get; set; }
+        [Required]
         [Display(Name = "匯入帳號")]
         public string ImportAccount { get; set; }
+        [Required]
         [Display(Name = "最後期限")]
         public System.DateTime Deadline { get; set; }
-        [Display(Name = "備註")]
+        [Required]
+        [Display(Name = "備註*")]
         public string Remark { get; set; }
+        [Required]
         [Display(Name = "採購部申請員工姓名")]
         public string PurchasingDepartmentEmployee { get; set; }
+        [Required]
         [Display(Name = "會計部處理員工姓名")]
         public string AccountingDepartmentEmployee { get; set; }
+        [Required]
         [Display(Name = "進貨單")]
         public System.Guid PurchaseID { get; set; }
 

@@ -21,18 +21,25 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "商品存貨紀錄編號")]
         public System.Guid InventoryRecordID { get; set; }
+        [Required]
         [Display(Name = "商品庫存量")]
         public string ProductStocks { get; set; }
+        [Required]
         [Display(Name = "安全存量")]
         public string SafetyStock { get; set; }
+        [Required]
         [Display(Name = "最後紀錄日期")]
         public System.DateTime LastRecordedDate { get; set; }
+        [Required]
         [Display(Name = "倉管記錄人姓名")]
         public string WarehouseRecordName { get; set; }
+        [Required]
         [Display(Name = "商品")]
         public System.Guid ProductID { get; set; }
+        [Required]
         [Display(Name = "生產負責人姓名")]
         public System.Guid InventorySingle { get; set; }
+        [Required]
         [Display(Name = "供應商")]
         public System.Guid ShipperID { get; set; }
 

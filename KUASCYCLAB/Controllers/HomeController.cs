@@ -16,20 +16,16 @@ namespace KUASCYCLAB.Controllers
         public async Task<ActionResult> Index()
         {
             
-            return View();
+            return View(await db.Products.ToListAsync());
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

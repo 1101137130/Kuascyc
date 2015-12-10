@@ -16,6 +16,7 @@ namespace KUASCYCLAB.Controllers.SalesManagement
         private KUASCYCEntities db = new KUASCYCEntities();
 
         // GET: Inquiry
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             var inquiries = db.Inquiries.Include(i => i.Product);
@@ -23,6 +24,7 @@ namespace KUASCYCLAB.Controllers.SalesManagement
         }
 
         // GET: Inquiry/Details/5
+        [Authorize]
         public async Task<ActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -36,11 +38,13 @@ namespace KUASCYCLAB.Controllers.SalesManagement
             }
             return View(inquiry);
         }
-
+        public static string message = "";
         // GET: Inquiry/Create
         public ActionResult Create()
         {
             ViewBag.ProductID = new SelectList(db.Products, "ProductID", "ProductName");
+            ViewBag.Message = message;
+            message="";
             return View();
         }
 
@@ -53,10 +57,12 @@ namespace KUASCYCLAB.Controllers.SalesManagement
         {
             if (ModelState.IsValid)
             {
+               
+                message = "新增成功!"; 
                 inquiry.InquiryID = Guid.NewGuid();
                 db.Inquiries.Add(inquiry);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             ViewBag.ProductID = new SelectList(db.Products, "ProductID", "ProductName", inquiry.ProductID);
@@ -64,6 +70,7 @@ namespace KUASCYCLAB.Controllers.SalesManagement
         }
 
         // GET: Inquiry/Edit/5
+        [Authorize]
         public async Task<ActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -83,6 +90,7 @@ namespace KUASCYCLAB.Controllers.SalesManagement
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "InquiryID,InquiryName,InquiryDate,ContactsPhone,E_MAIL,Qty,TotalQty,Remark,ProductID")] Inquiry inquiry)
         {
@@ -97,6 +105,7 @@ namespace KUASCYCLAB.Controllers.SalesManagement
         }
 
         // GET: Inquiry/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -112,6 +121,7 @@ namespace KUASCYCLAB.Controllers.SalesManagement
         }
 
         // POST: Inquiry/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(Guid id)

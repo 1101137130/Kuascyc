@@ -21,10 +21,14 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "BOM表編號")]
         public System.Guid BOMID { get; set; }
+        [Required]
         [Display(Name = "所需原物料名稱")]
         public string MaterialName { get; set; }
+        [Required]
         [Display(Name = "所需原物料數量")]
         public string MaterialQuantity { get; set; }
+        [Required]
+        [Display(Name = "商品")]
         public System.Guid ProductID { get; set; }
 
         public virtual Product Product { get; set; }

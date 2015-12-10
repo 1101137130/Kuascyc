@@ -21,32 +21,45 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "訂單編號")]
         public System.Guid SalesOrderID { get; set; }
+        [Required]
         [Display(Name = "訂購日期")]
         public System.DateTime OrderDate { get; set; }
+        [Required]
         [Display(Name = "收件者姓名")]
         public string ToName { get; set; }
+        [Required]
         [Display(Name = "收件地點")]
         public string RecipientPlace { get; set; }
+        [Required]
         [Display(Name = "收件者連絡電話")]
         public string RecipientsPhone { get; set; }
+        [Required]
         [Display(Name = "預期收件日期")]
         public System.DateTime ExpectedReceiptDate { get; set; }
+        [Required]
         [Display(Name = "訂購數量")]
         public string Qty { get; set; }
+        [Required]
         [Display(Name = "訂購總數量")]
         public string TotalQty { get; set; }
+        [Required]
         [Display(Name = "訂購金額")]
         public string PurchaseAmount { get; set; }
+        [Required]
         [Display(Name = "訂購總金額")]
         public string TotalOrderAmount { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Required]
         [Display(Name = "業務部處理員工姓名")]
         public string BusinessProcessEmployee { get; set; }
+        [Required]
         [Display(Name = "倉管部處理員工姓名")]
         public string WarehouseDealingEmployee { get; set; }
+        [Required]
         [Display(Name = "報價單編號")]
         public System.Guid QuotationID { get; set; }
+        [Required]
         [Display(Name = "客戶編號")]
         public System.Guid CustomerID { get; set; }
 

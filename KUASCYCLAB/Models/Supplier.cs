@@ -23,17 +23,25 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "供應商編號")]
         public System.Guid SupplierID { get; set; }
+        [Required]
         [Display(Name = "供應商名稱")]
         public string SupplierName { get; set; }
+        [Required]
         [Display(Name = "聯絡電話")]
         public string SupplierPhone { get; set; }
+        [Required]
+        [Display(Name = "E-Mail")]
         public string SupplierEmail { get; set; }
+        [Required]
         [Display(Name = "住址")]
         public string SupplierAddress { get; set; }
+        [Required]
         [Display(Name = "負責人姓名")]
         public string ResponsiblePerson { get; set; }
+        [Required]
         [Display(Name = "有供應原料")]
         public string SupplyRawMaterial { get; set; }
+        [Required]
         [Display(Name = "有供應原料金額")]
         public string RawMaterialPrice { get; set; }
 

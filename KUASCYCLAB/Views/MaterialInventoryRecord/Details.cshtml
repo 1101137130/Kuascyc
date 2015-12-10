@@ -7,7 +7,7 @@
 <h2>檢視</h2>
 
 <div>
-    <h4>MaterialInventoryRecord</h4>
+    <h4>原料庫存紀錄</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -93,6 +93,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("編輯", "Edit", new { id = Model.MaterialInventoryRecordID }) |
+    <button id="edit" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Edit",new { id =  Model.MaterialInventoryRecordID })'; return false;">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </button>
        <button id="create" type="button" class="btn btn-group-vertical" onclick="location.href = '@Url.Action("Index")'; return false;"> <span class="glyphicon glyphicon-arrow-left"></span></button>
 </p>

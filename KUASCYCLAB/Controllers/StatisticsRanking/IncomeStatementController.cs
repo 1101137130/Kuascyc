@@ -11,6 +11,7 @@ using KUASCYCLAB.Models;
 
 namespace KUASCYCLAB.Controllers.StatisticsRanking
 {
+    [Authorize]
     public class IncomeStatementController : Controller
     {
         private KUASCYCEntities db = new KUASCYCEntities();

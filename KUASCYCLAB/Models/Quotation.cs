@@ -21,14 +21,18 @@ namespace KUASCYCLAB.Models
         [Key]
         [Display(Name = "報價單編號")]
         public System.Guid QuotationID { get; set; }
+        [Required]
         [Display(Name = "業務部接單員工姓名")]
         public string BusinessOrdersEmployee { get; set; }
+        [Required]
         [Display(Name = "報價日期")]
         public System.DateTime QuoteDate { get; set; }
+        [Required]
         [Display(Name = "報價金額")]
         public string OfferAmount { get; set; }
         [Display(Name = "備註")]
         public string Remark { get; set; }
+        [Required]
         [Display(Name = "詢價人")]
         public System.Guid InquiryID { get; set; }
 
