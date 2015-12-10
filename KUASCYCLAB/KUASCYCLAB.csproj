@@ -403,7 +403,6 @@
     </Content>
     <Content Include="apiapp.json" />
     <None Include="Properties\PublishProfiles\Kuas.pubxml" />
-    <None Include="Properties\PublishProfiles\kuascyc.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
