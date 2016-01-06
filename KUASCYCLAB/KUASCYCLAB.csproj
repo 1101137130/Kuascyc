@@ -402,7 +402,6 @@
       <DependentUpon>KUASCYCLAB.edmx</DependentUpon>
     </Content>
     <Content Include="apiapp.json" />
-    <None Include="Properties\PublishProfiles\Kuas %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Kuas.pubxml" />
     <None Include="Properties\PublishProfiles\kuascyc.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
