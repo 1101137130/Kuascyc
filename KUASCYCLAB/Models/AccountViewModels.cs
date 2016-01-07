@@ -54,7 +54,10 @@ namespace KUASCYCLAB.Models
         public string Email { get; set; }
 
         [Required]
+        [System.Web.Mvc.AllowHtml]
         [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$",ErrorMessage ="密碼需求大小寫英文及數字6字元以上")]
+
         [Display(Name = "密碼")]
         public string Password { get; set; }
 
@@ -70,13 +73,18 @@ namespace KUASCYCLAB.Models
         public string Email { get; set; }
 
         [Required]
+        [System.Web.Mvc.AllowHtml]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$",ErrorMessage ="密碼需求大小寫英文及數字6字元以上")]
         [StringLength(100, ErrorMessage = "{0} 的長度至少必須為 {2} 個字元。", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "密碼")]
+
         public string Password { get; set; }
 
+        [System.Web.Mvc.AllowHtml]
         [DataType(DataType.Password)]
         [Display(Name = "確認密碼")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$",ErrorMessage ="密碼需求大小寫英文及數字6字元以上")]
         [Compare("Password", ErrorMessage = "密碼和確認密碼不相符。")]
         public string ConfirmPassword { get; set; }
     }
@@ -91,11 +99,17 @@ namespace KUASCYCLAB.Models
         [Required]
         [StringLength(100, ErrorMessage = "{0} 的長度至少必須為 {2} 個字元。", MinimumLength = 6)]
         [DataType(DataType.Password)]
+        [System.Web.Mvc.AllowHtml]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$",ErrorMessage ="密碼需求大小寫英文及數字6字元以上")]
+
         [Display(Name = "密碼")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
+        [System.Web.Mvc.AllowHtml]
         [Display(Name = "確認密碼")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$",ErrorMessage ="密碼需求大小寫英文及數字6字元以上")]
+
         [Compare("Password", ErrorMessage = "密碼和確認密碼不相符。")]
         public string ConfirmPassword { get; set; }
 
